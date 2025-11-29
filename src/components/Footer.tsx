@@ -1,0 +1,31 @@
+import React from 'react';
+
+export default function Footer() {
+  return (
+    <footer className="site-footer" role="contentinfo">
+      <div className="container footer-inner">
+        <div className="footer-brand">
+          <img src="/assets/logo3.png" alt="RIseHer logo" className="logo-small" />
+          <p>RIseHer — Empowering women in public life & public service.</p>
+        </div>
+
+        <div className="footer-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/transparency">Transparency</a>
+        </div>
+
+        <div className="socials" aria-label="Social links">
+          <a href="https://instagram.com" aria-label="Instagram"><img src="/assets/Instagram.png" alt="Instagram" /></a>
+          <a href="https://tiktok.com" aria-label="TikTok"><img src="/assets/tiktok.png" alt="TikTok" /></a>
+          <a href="https://linkedin.com" aria-label="LinkedIn"><img src="/assets/linkedin.png" alt="LinkedIn" /></a>
+          <a href="https://twitter.com" aria-label="Twitter"><img src="/assets/twitter.png" alt="Twitter" /></a>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} RIseHer. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+}
