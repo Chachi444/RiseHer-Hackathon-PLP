@@ -1,21 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export default function Header() {
   return (
     <header className="site-header" role="banner">
       <div className="container header-inner">
+        {/* Skip link for keyboard users */}
+        <a href="#main" className="skip-link" style={{ position: 'absolute', left: -9999, top: 'auto' , height: 1, width: 1, overflow: 'hidden' }}>
+          Skip to main content
+        </a>
+
         <Link to="/" className="brand" aria-label="RIseHer home">
           <img src="/assets/logo1.png" alt="RIseHer logo" className="logo" />
           <span className="sr-only">RIseHer</span>
         </Link>
 
         <nav className="main-nav" role="navigation" aria-label="Main">
-          <Link to="/">Home</Link>
-          <Link to="/mentorship">Mentorship</Link>
-          <Link to="/visibility">Visibility</Link>
-          <Link to="/resources">Resources</Link>
-          <Link to="/about">About</Link>
+          <NavLink to="/" end className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
+          <NavLink to="/mentorship" className={({ isActive }) => (isActive ? 'active' : '')}>Mentorship</NavLink>
+          {/* visibility link gets an explicit label for clarity */}
+          <NavLink to="/visibility" className={({ isActive }) => (isActive ? 'active' : '')} aria-label="Visibility and Inspiration">Visibility</NavLink>
+          <NavLink to="/resources" className={({ isActive }) => (isActive ? 'active' : '')}>Resources</NavLink>
+          <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>About</NavLink>
         </nav>
 
         <div className="header-ctas">

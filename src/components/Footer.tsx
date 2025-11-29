@@ -10,16 +10,18 @@ export default function Footer() {
         </div>
 
         <div className="footer-links">
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/transparency">Transparency</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Transparency</a>
+          {/* quick access to safety reporting */}
+          <a href="/report-harassment" aria-label="Report harassment">Report Harassment</a>
         </div>
 
         <div className="socials" aria-label="Social links">
-          <a href="https://instagram.com" aria-label="Instagram"><img src="/assets/Instagram.png" alt="Instagram" /></a>
-          <a href="https://tiktok.com" aria-label="TikTok"><img src="/assets/tiktok.png" alt="TikTok" /></a>
-          <a href="https://linkedin.com" aria-label="LinkedIn"><img src="/assets/linkedin.png" alt="LinkedIn" /></a>
-          <a href="https://twitter.com" aria-label="Twitter"><img src="/assets/twitter.png" alt="Twitter" /></a>
+          <a href="#" aria-label="Instagram"><img src="/assets/Instagram.png" alt="Instagram" /></a>
+          <a href="#" aria-label="TikTok"><img src="/assets/tiktok.png" alt="TikTok" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="/assets/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#" aria-label="Twitter"><img src="/assets/twitter.png" alt="Twitter" /></a>
         </div>
       </div>
 

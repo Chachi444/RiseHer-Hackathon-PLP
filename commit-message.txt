@@ -1,0 +1,14 @@
+feat(ui): unify theme & typography; polish About, Visibility, Resources, and reporting
+
+- Add Roboto font import and CSS theme variables; apply consistent heading weights and focus styles.
+- Improve About page: new hero (text left, framed image right), refined mission/offer layout and visual cards.
+- Enhance Visibility page: full‑bleed map canvas, refined directory cards, polished story submission and Ask-an-Expert flows.
+- Add harassment reporting page with evidence upload (prototype saved to localStorage).
+- Revamp Resources: card grid, inline preview, download/save to localStorage, inline resource creation.
+- Replace simple testimonials with a responsive carousel (3-per-view) and partners slider; accessibility and autoplay.
+- Header/footer styling updates (header card layout; footer links open in same tab), and multiple small UX/accessibility fixes.
+- Fix runtime/state issues and improve keyboard support and ARIA announcements.
+
+Notes:
+- Prototype behavior (file uploads, localStorage) is for demo; replace with secure server storage for production.
+- No breaking API changes; visual and UX improvements only.

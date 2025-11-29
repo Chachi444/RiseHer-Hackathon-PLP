@@ -41,8 +41,8 @@ export default function Dashboard() {
           <h1 style={{ marginTop: 0, color: 'var(--color-deep-purple, #5A007A)' }}>Welcome to RIseHer</h1>
           <p style={{ marginTop: 8, marginBottom: 18 }}>Create your profile to access mentorship, resources and a personalized community experience.</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
-            <button style={buttonPrimary} onClick={() => navigate('/join')}>Create your profile</button>
-            <button style={linkBtn} onClick={() => navigate('/')}>Back to home</button>
+            <a href="/join" target="_blank" rel="noopener noreferrer" style={buttonPrimary} aria-label="Create your profile (opens in new tab)">Create your profile</a>
+            <a href="/" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="Back to home (opens in new tab)">Back to home</a>
           </div>
         </div>
       </div>
@@ -75,8 +75,9 @@ export default function Dashboard() {
             </div>
             <p style={{ marginTop: 8, marginBottom: 0, fontSize: '.9rem' }}>Complete your profile to improve matching: add experience, skills and availability.</p>
             <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
-              <button style={linkBtn} onClick={() => navigate('/profile')}>Edit profile</button>
-              <button style={linkBtn} onClick={() => navigate('/mentorship')}>Find mentor</button>
+              {/* navigation opens in new tab by default; use full anchors so user can right-click/open as usual */}
+              <a href="/profile" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="Edit profile (opens in new tab)">Edit profile</a>
+              <a href="/mentorship" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="Find mentor (opens in new tab)">Find mentor</a>
             </div>
           </div>
 
@@ -89,8 +90,8 @@ export default function Dashboard() {
           </div>
 
           <div style={{ marginTop: 18, display: 'flex', gap: 8 }}>
-            <button style={linkBtn} onClick={() => navigate('/settings')}>Settings</button>
-            <button style={linkBtn} onClick={signOut}>Sign out</button>
+            <a href="/settings" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="Settings (opens in new tab)">Settings</a>
+            <button onClick={signOut} style={linkBtn} aria-label="Sign out">Sign out</button>
           </div>
         </aside>
 
@@ -111,8 +112,8 @@ export default function Dashboard() {
                 </div>
               </div>
               <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
-                <button style={buttonPrimary} onClick={() => navigate('/mentorship')}>View matches</button>
-                <button style={linkBtn} onClick={() => navigate('/mentorship')}>Request intro</button>
+                <a href="/mentorship" target="_blank" rel="noopener noreferrer" style={buttonPrimary} aria-label="View mentorship matches (opens in new tab)">View matches</a>
+                <a href="/mentorship" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="Request an intro (opens in new tab)">Request intro</a>
               </div>
             </div>
 
@@ -125,7 +126,7 @@ export default function Dashboard() {
                 <li>Grant: Women in Civic Leadership</li>
               </ul>
               <div style={{ marginTop: 12 }}>
-                <button style={linkBtn} onClick={() => navigate('/resources')}>Open resources</button>
+                <a href="/resources" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="Open resources (opens in new tab)">Open resources</a>
               </div>
             </div>
           </div>
@@ -144,7 +145,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <div style={{ marginTop: 12 }}>
-                <button style={buttonPrimary} onClick={() => navigate('/events')}>RSVP</button>
+                <a href="/events" target="_blank" rel="noopener noreferrer" style={buttonPrimary} aria-label="RSVP for event (opens in new tab)">RSVP</a>
               </div>
             </div>
 
@@ -156,7 +157,7 @@ export default function Dashboard() {
                 <li><strong>Forum reply</strong> — Thread on regional meetups has new comments.</li>
               </ul>
               <div style={{ marginTop: 12 }}>
-                <button style={linkBtn} onClick={() => navigate('/community')}>View activity</button>
+                <a href="/community" target="_blank" rel="noopener noreferrer" style={linkBtn} aria-label="View community activity (opens in new tab)">View activity</a>
               </div>
             </div>
           </div>

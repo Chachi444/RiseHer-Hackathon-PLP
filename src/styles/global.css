@@ -13,14 +13,23 @@
 /* Reset & base */
 *{box-sizing:border-box}
 html,body,#root{height:100%}
+html { font-size: 16px; }
+
+/* Ensure a clear, light background and dark default text to avoid an unexpectedly black page */
 body{
   margin:0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:var(--color-dark-gray);
-  background:var(--color-white);
+  color:var(--color-dark-gray);          /* make text dark */
+  background: #ffffff;                   /* force white page background */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.4;
+}
+
+/* Defensive rule: app container should be light so overlays inside components don't make entire page black */
+.app-root, main, #main {
+  background: transparent;
+  color: inherit;
 }
 
 /* Container */
@@ -89,6 +98,42 @@ body{
 .footer-links a{color:rgba(255,255,255,0.9);margin-right:1rem;text-decoration:none}
 .socials img{height:24px;margin-left:.6rem;opacity:.95}
 .footer-bottom{text-align:center;padding-top:1rem;font-size:.9rem;color:rgba(255,255,255,0.85)}
+
+/* Skip link visible when focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: var(--color-white);
+  color: var(--color-deep-purple);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  z-index: 60;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  height: auto;
+  width: auto;
+  outline: 3px solid rgba(203,166,247,0.8);
+}
+
+/* Make main-nav links clearly focusable */
+.main-nav a,
+.main-nav .active {
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  padding: 0.25rem 0.35rem;
+  border-radius: 6px;
+}
+.main-nav a:focus,
+.main-nav a:focus-visible,
+.main-nav .active:focus {
+  outline: 3px solid rgba(203,166,247,0.6);
+  outline-offset: 2px;
+  background: rgba(255,255,255,0.06);
+}
 
 /* Responsive */
 @media (max-width:900px){

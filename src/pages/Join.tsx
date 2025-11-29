@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Join() {
   const navigate = useNavigate();
@@ -113,13 +113,14 @@ export default function Join() {
         </div>
 
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <button type="submit" style={submitStyle} disabled={submitting}>
+          <button type="submit" style={submitStyle} disabled={submitting} aria-label="Sign up">
             {submitting ? 'Signing up…' : 'Sign up'}
           </button>
 
-          <button type="button" onClick={() => navigate(-1)} style={{ background: 'transparent', border: 'none', color: 'var(--color-deep-purple, #5A007A)', cursor: 'pointer' }}>
+          {/* Cancel is navigation — use Link for accessible navigation */}
+          <Link to="/" style={{ background: 'transparent', border: 'none', color: 'var(--color-deep-purple, #5A007A)', cursor: 'pointer', padding: '.55rem .9rem', textDecoration: 'none' }} aria-label="Cancel sign up and go home">
             Cancel
-          </button>
+          </Link>
         </div>
 
         <div id="join-status" aria-live="polite" style={noteStyle}>
