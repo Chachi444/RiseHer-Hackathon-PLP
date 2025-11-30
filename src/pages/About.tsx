@@ -81,7 +81,7 @@ export default function About() {
         </div>
 
         <div style={imgWrap} aria-hidden={false}>
-          <img src="/assets/Riseher.png" alt="RIseHer hero artwork" style={heroImg} />
+          <img src="/assets/riseher.png" alt="RIseHer hero artwork" style={heroImg} />
         </div>
       </header>
 

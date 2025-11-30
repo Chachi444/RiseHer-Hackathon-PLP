@@ -72,11 +72,13 @@ export default function Home() {
 	};
 
 	const linkStyle: React.CSSProperties = {
+		// keep the layout behavior (push link to bottom of the card)
 		marginTop: 'auto',
 		color: 'var(--color-deep-purple, #5A007A)',
 		fontWeight: 700,
 		textDecoration: 'none',
-		marginTop: '1rem',
+		// duplicate marginTop removed — use marginBottom if additional spacing was intended
+		marginBottom: '1rem',
 	};
 
 	const iconStyle: React.CSSProperties = {
