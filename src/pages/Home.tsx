@@ -226,7 +226,7 @@ export default function Home() {
 
 					<article className="card" style={cardStyle} aria-labelledby="upcoming-event">
 						<div style={mediaSquare}>
-							<img src="/assets/Banner.png" alt="Upcoming event illustration" style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 8 }} />
+							<img src="/assets/banner.png" alt="Upcoming event illustration" style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 8 }} />
 						</div>
 
 						<h3 id="upcoming-event" style={titleStyle}>
@@ -245,7 +245,7 @@ export default function Home() {
 
 					<article className="card" style={cardStyle} aria-labelledby="latest-news">
 						<div style={mediaSquare}>
-							<img src="/assets/News.png" alt="Latest news illustration" style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 8 }} />
+							<img src="/assets/news.png" alt="Latest news illustration" style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 8 }} />
 						</div>
 
 						<h3 id="latest-news" style={titleStyle}>

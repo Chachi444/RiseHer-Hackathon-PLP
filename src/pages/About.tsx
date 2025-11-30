@@ -79,7 +79,7 @@ export default function About() {
             We believe that women’s voices are essential to shaping inclusive policies, driving innovation, and building stronger communities. Yet, many face barriers such as underrepresentation, harassment, and lack of mentorship. RIseHer was created to break these barriers and create a safe, supportive, and inspiring digital space.
           </p>
         </div>
-
+    
         <div style={imgWrap} aria-hidden={false}>
           <img src="/assets/riseher.png" alt="RIseHer hero artwork" style={heroImg} />
         </div>
