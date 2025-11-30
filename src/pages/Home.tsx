@@ -207,7 +207,8 @@ export default function Home() {
 				<div style={gridStyle} aria-live="polite">
 					<article className="card" style={cardStyle} aria-labelledby="featured-leader">
 						<div style={mediaCircle}>
-							<img src="/assets/Mumbi Ndung'u.png" alt="Amina Sow — featured leader" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+							{/* use a safe, existing image filename to avoid casing / special-character issues on Linux */}
+							<img src="/assets/one.jpg" alt="Featured leader" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
 						</div>
 
 						<h3 id="featured-leader" style={titleStyle}>
