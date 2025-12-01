@@ -1,0 +1,11 @@
+.stories-page { max-width:860px; margin:2rem auto; padding:20px; }
+.stories-title { margin-top:0; color:var(--color-deep-purple,#5A007A); }
+.stories-lead { color:#555; }
+.stories-form { margin-top:12px; }
+.form-row { display:block; margin-top:12px; }
+.form-input, .form-textarea { display:block; width:100%; padding:.6rem .8rem; border-radius:8px; border:1px solid #ddd; margin-top:6px; box-sizing:border-box; }
+.form-checkbox { display:flex; gap:8px; align-items:center; margin-top:12px; }
+.form-actions { margin-top:14px; display:flex; gap:12px; }
+.form-status { margin-top:12px; }
+.error { color:#c0392b; }
+.success { color:green; }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/events.css'; // added
 
 export default function Events() {
   const events = [
@@ -8,27 +9,27 @@ export default function Events() {
   ];
 
   return (
-    <div style={{ maxWidth: 1000, margin: '2rem auto', padding: 20 }}>
+    <div className="events-page">
       <h1>Events</h1>
-      <p style={{ color: '#555' }}>Upcoming events, workshops and regional meetups. Click an event to RSVP or see details.</p>
+      <p className="muted">Upcoming events, workshops and regional meetups. Click an event to RSVP or see details.</p>
 
-      <div style={{ marginTop: 18, display: 'grid', gap: 12 }}>
+      <div className="events-list">
         {events.map(ev => (
-          <article key={ev.id} style={{ background: '#fff', padding: 12, borderRadius: 10, boxShadow: '0 8px 20px rgba(0,0,0,0.04)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <article key={ev.id} className="event-card">
             <div>
-              <div style={{ fontWeight: 800 }}>{ev.title}</div>
-              <div style={{ color: '#666' }}>{ev.date} · {ev.time}</div>
+              <div className="event-title">{ev.title}</div>
+              <div className="muted">{ev.date} · {ev.time}</div>
             </div>
-            <div style={{ display: 'flex', gap: 8 }}>
-              <a href={`/events/${ev.id}`} target="_blank" rel="noopener noreferrer" style={{ padding: '.5rem .8rem', borderRadius: 8, background: '#FFD700', color: '#5A007A', fontWeight: 700, textDecoration: 'none' }}>RSVP</a>
-              <Link to="/dashboard" aria-label="Go back to dashboard" style={{ alignSelf: 'center' }}>Go back</Link>
+            <div className="event-actions">
+              <a href={`/events/${ev.id}`} target="_blank" rel="noopener noreferrer" className="btn-primary">RSVP</a>
+              <Link to="/dashboard">Go back</Link>
             </div>
           </article>
         ))}
       </div>
 
-      <footer style={{ marginTop: 18 }}>
-        <Link to="/dashboard" aria-label="Go back to dashboard">Go back</Link>
+      <footer className="page-footer">
+        <Link to="/dashboard">Go back</Link>
       </footer>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import '../styles/contact.css';
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
@@ -42,37 +43,35 @@ export default function Contact() {
   };
 
   return (
-    <main style={{ maxWidth: 760, margin: '2rem auto', padding: 20 }}>
-      <h1 style={{ marginTop: 0 }}>Contact {recipientName || 'the leader'}</h1>
-      {recipientEmail && <p style={{ color: '#666' }}>Recipient email (for reference): <strong>{recipientEmail}</strong></p>}
-      <p style={{ color: '#555' }}>Use this form to send a secure message through RIseHer. We will deliver the message to the recipient and notify you when they respond.</p>
+    <main className="contact-page">
+      <h1>Contact {recipientName || 'the leader'}</h1>
+      {recipientEmail && <p className="muted">Recipient email (for reference): <strong>{recipientEmail}</strong></p>}
+      <p className="muted">Use this form to send a secure message through RIseHer. We will deliver the message to the recipient and notify you when they respond.</p>
 
-      <form onSubmit={onSubmit} aria-live="polite" style={{ marginTop: 12 }}>
-        <label style={{ display: 'block', marginTop: 10 }}>
+      <form onSubmit={onSubmit} className="contact-form" aria-live="polite">
+        <label className="form-row">
           Your name
-          <input name="yourName" value={form.yourName} onChange={onChange} required style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }} />
+          <input name="yourName" value={form.yourName} onChange={onChange} required className="form-input" />
         </label>
 
-        <label style={{ display: 'block', marginTop: 10 }}>
+        <label className="form-row">
           Your email
-          <input name="yourEmail" type="email" value={form.yourEmail} onChange={onChange} required style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }} />
+          <input name="yourEmail" type="email" value={form.yourEmail} onChange={onChange} required className="form-input" />
         </label>
 
-        <label style={{ display: 'block', marginTop: 10 }}>
+        <label className="form-row">
           Message
-          <textarea name="message" value={form.message} onChange={onChange} rows={6} required style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }} />
+          <textarea name="message" value={form.message} onChange={onChange} rows={6} required className="form-textarea" />
         </label>
 
-        <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
-          <button type="submit" style={{ padding: '.6rem .9rem', background: '#5A007A', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700 }}>
-            Send message
-          </button>
-          <Link to="/dashboard" style={{ alignSelf: 'center' }}>Go back</Link>
+        <div className="form-actions">
+          <button type="submit" className="btn-primary">Send message</button>
+          <Link to="/dashboard">Go back</Link>
         </div>
 
-        <div style={{ marginTop: 10 }} aria-live="polite">
-          {status === 'error' && <span style={{ color: '#c0392b' }}>Please complete all fields and provide a valid email.</span>}
-          {status === 'sent' && <span style={{ color: 'green' }}>Message sent — we will notify you when the recipient replies.</span>}
+        <div className="form-status" aria-live="polite">
+          {status === 'error' && <span className="error">Please complete all fields and provide a valid email.</span>}
+          {status === 'sent' && <span className="success">Message sent — we will notify you when the recipient replies.</span>}
         </div>
       </form>
     </main>

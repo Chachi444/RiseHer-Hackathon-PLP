@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/resources.css'; // added stylesheet import
 
 type Resource = {
 	id: number;
@@ -82,101 +83,78 @@ export default function Resources() {
 		setShowAdd(false);
 	};
 
-	// styles (refined)
-	const container = { maxWidth: 1000, margin: '2rem auto', padding: 20, fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto' } as React.CSSProperties;
-	const header = { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 } as React.CSSProperties;
-	const title = { margin: 0, fontSize: '1.4rem', color: '#2c1a4a' } as React.CSSProperties;
-	const lead = { color: '#555', marginTop: 6 } as React.CSSProperties;
-	const controls = { marginTop: 14, display: 'flex', gap: 12, alignItems: 'center' } as React.CSSProperties;
-	const searchInput = { flex: 1, padding: '.55rem .75rem', borderRadius: 8, border: '1px solid #E6E6F0' } as React.CSSProperties;
-	const btnPrimary = { padding: '.55rem .9rem', background: '#5A007A', color: '#fff', borderRadius: 8, textDecoration: 'none', border: 'none', cursor: 'pointer' } as React.CSSProperties;
-	const btnGhost = { padding: '.5rem .85rem', background: 'transparent', border: '1px solid rgba(0,0,0,0.06)', borderRadius: 8, cursor: 'pointer' } as React.CSSProperties;
-
-	const grid = { display: 'grid', gap: 12, marginTop: 16 } as React.CSSProperties;
-	const card = { background: '#fff', padding: 16, borderRadius: 10, boxShadow: '0 10px 30px rgba(10,10,20,0.04)', border: '1px solid rgba(0,0,0,0.04)' } as React.CSSProperties;
-	const pill = { display: 'inline-block', padding: '4px 8px', background: '#F6F0FF', color: '#5A007A', borderRadius: 999, fontWeight: 700, fontSize: '.85rem' } as React.CSSProperties;
-	const actions = { marginTop: 12, display: 'flex', gap: 8, alignItems: 'center' } as React.CSSProperties;
-	const details = { marginTop: 12, padding: 12, background: '#FBFBFF', borderRadius: 8, border: '1px solid rgba(11,12,26,0.03)' } as React.CSSProperties;
-	const smallMuted = { color: '#666', fontSize: '.95rem' } as React.CSSProperties;
-
 	return (
-		<div style={container}>
-			<header style={header}>
+		<div className="res-container">
+			<header className="res-header">
 				<div>
-					<h1 style={title}>Resources</h1>
-					<p style={lead}>Toolkits, templates, and guides to support campaigns, leadership development, and safety.</p>
+					<h1 className="res-title">Resources</h1>
+					<p className="res-lead">Toolkits, templates, and guides to support campaigns, leadership development, and safety.</p>
 				</div>
-				{/* no external blank target — inline add form */}
 				<div>
-					<button onClick={() => setShowAdd((s) => !s)} style={btnGhost}>{showAdd ? 'Close' : 'Add resource'}</button>
+					<button onClick={() => setShowAdd((s) => !s)} className="res-btn-ghost">{showAdd ? 'Close' : 'Add resource'}</button>
 				</div>
 			</header>
 
 			{showAdd && (
-				<form onSubmit={onAdd} style={{ marginTop: 12, marginBottom: 8, display: 'grid', gap: 8 }}>
-					<input placeholder="Title" value={newRes.title} onChange={(e) => setNewRes((n) => ({ ...n, title: e.target.value }))} style={{ padding: '.6rem .8rem', borderRadius: 8, border: '1px solid #E6E6F0' }} />
-					<div style={{ display: 'flex', gap: 8 }}>
-						<select value={newRes.type} onChange={(e) => setNewRes((n) => ({ ...n, type: e.target.value }))} style={{ padding: '.55rem .75rem', borderRadius: 8, border: '1px solid #E6E6F0' }}>
+				<form onSubmit={onAdd} className="res-form">
+					<input placeholder="Title" value={newRes.title} onChange={(e) => setNewRes((n) => ({ ...n, title: e.target.value }))} className="res-form-input" />
+					<div className="res-form-row">
+						<select value={newRes.type} onChange={(e) => setNewRes((n) => ({ ...n, type: e.target.value }))} className="res-select">
 							<option>Guide</option>
 							<option>Video</option>
 							<option>Funding</option>
 							<option>Tool</option>
 						</select>
-						<button type="submit" style={btnPrimary}>Add</button>
+						<button type="submit" className="res-btn-primary">Add</button>
 					</div>
-					<textarea placeholder="Short description" value={newRes.description} onChange={(e) => setNewRes((n) => ({ ...n, description: e.target.value }))} rows={3} style={{ padding: '.6rem .8rem', borderRadius: 8, border: '1px solid #E6E6F0' }} />
+					<textarea placeholder="Short description" value={newRes.description} onChange={(e) => setNewRes((n) => ({ ...n, description: e.target.value }))} rows={3} className="res-textarea" />
 				</form>
 			)}
 
-			{/* header controls simplified: no search, no create page */}
-			<div style={controls}>
-				<div style={{ color: '#666', fontSize: '.95rem' }}>{resources.length} resources</div>
+			<div className="res-controls">
+				<div className="res-small-muted">{resources.length} resources</div>
 			</div>
 
-			<ul style={grid}>
+			<ul className="res-grid">
 				{results.map((r) => (
-					<li key={r.id} style={card}>
-						<div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'flex-start' }}>
-							<div style={{ flex: 1 }}>
-								<strong style={{ fontSize: '1.02rem' }}>{r.title}</strong>
-								<div style={smallMuted}><span style={pill as any}>{r.type}</span></div>
-								<div style={{ marginTop: 8, color: '#444' }}>{r.description?.slice(0, 140)}{r.description && r.description.length > 140 ? '…' : ''}</div>
+					<li key={r.id} className="res-card">
+						<div className="res-card-row">
+							<div className="res-card-meta">
+								<strong className="res-card-title">{r.title}</strong>
+								<div className="res-small-muted"><span className="res-pill">{r.type}</span></div>
+								<div className="res-card-desc">{r.description?.slice(0, 140)}{r.description && r.description.length > 140 ? '…' : ''}</div>
 							</div>
 
-							<div style={{ marginLeft: 12, display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-end' }}>
-								<button onClick={() => toggleOpen(r.id)} aria-expanded={openId === r.id} style={btnGhost}>{openId === r.id ? 'Close' : 'Open'}</button>
-								<button onClick={() => saveResource(r)} disabled={!!r.saved || savingId === r.id} style={{ ...btnPrimary, opacity: r.saved ? 0.7 : 1, cursor: r.saved ? 'default' : 'pointer' }}>
+							<div className="res-card-actions">
+								<button onClick={() => toggleOpen(r.id)} aria-expanded={openId === r.id} className="res-btn-ghost">{openId === r.id ? 'Close' : 'Open'}</button>
+								<button onClick={() => saveResource(r)} disabled={!!r.saved || savingId === r.id} className={`res-btn-primary res-save-btn ${r.saved ? 'saved' : ''}`}>
 									{r.saved ? 'Saved' : savingId === r.id ? 'Saving…' : 'Save'}
 								</button>
 							</div>
 						</div>
 
 						{openId === r.id && (
-							<div style={details}>
-								<h4 style={{ margin: 0 }}>{r.title}</h4>
-								<p style={{ marginTop: 8, color: '#444' }}>{r.description || 'No further details provided.'}</p>
-								<div style={{ marginTop: 10, display: 'flex', gap: 8 }}>
-									{/* Inline preview toggle */}
+							<div className="res-details">
+								<h4 className="res-detail-title">{r.title}</h4>
+								<p className="res-card-desc">{r.description || 'No further details provided.'}</p>
+								<div className="res-actions">
 									<button
 										onClick={() => setPreviewId((p) => (p === r.id ? null : r.id))}
-										style={btnGhost}
+										className="res-btn-ghost"
 										aria-pressed={previewId === r.id}
 									>
 										{previewId === r.id ? 'Hide preview' : 'Preview'}
 									</button>
 
-									{/* download as text file (prototype) */}
-									<button onClick={() => downloadResource(r)} style={btnGhost}>Download</button>
+									<button onClick={() => downloadResource(r)} className="res-btn-ghost">Download</button>
 
-									{/* view page still navigates inside app */}
-									<Link to={`/resources/${r.id}`} style={{ ...btnPrimary, textDecoration: 'none' }}>View page</Link>
+									<Link to={`/resources/${r.id}`} className="res-btn-primary res-view-link">View page</Link>
 								</div>
 
-								{/* Inline preview panel (shows when Preview clicked) */}
 								{previewId === r.id && (
-									<div style={{ marginTop: 12, padding: 12, background: '#fff', border: '1px solid rgba(0,0,0,0.04)', borderRadius: 8 }}>
-										<strong style={{ display: 'block' }}>Preview</strong>
-										<p style={{ marginTop: 8, color: '#444' }}>{r.description || 'No further details provided.'}</p>
+									<div className="res-preview-panel">
+										<strong>Preview</strong>
+										<p className="res-card-desc">{r.description || 'No further details provided.'}</p>
 									</div>
 								)}
 							</div>
@@ -185,8 +163,8 @@ export default function Resources() {
 				))}
 			</ul>
 
-			<footer style={{ marginTop: 20 }}>
-				<Link to="/dashboard" aria-label="Go back to dashboard">Go back</Link>
+			<footer className="res-footer">
+				<Link to="/dashboard" className="res-footer-link">Go back</Link>
 			</footer>
 		</div>
 	);

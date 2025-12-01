@@ -1,0 +1,12 @@
+.join-page { max-width:760px; margin:2rem auto; padding:1.25rem; }
+.join-title { margin-top:0; color:var(--color-deep-purple,#5A007A); }
+.join-lead { margin-bottom:12px; }
+.join-form .form-field { display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+.form-label { font-weight:700; color:var(--color-deep-purple,#5A007A); }
+.form-input { padding:.65rem .9rem; border-radius:8px; border:1px solid #DDD; font-size:1rem; }
+.join-avatar { width:88px; height:88px; object-fit:cover; border-radius:12px; margin-top:10px; border:2px solid rgba(0,0,0,0.06); }
+.form-actions { display:flex; gap:12px; align-items:center; }
+.join-note { margin-top:12px; color:var(--color-dark-gray,#2E2E2E); opacity:0.9; }
+.error { color:#D9534F; }
+.success { color:green; }
+.link.cancel { background:transparent; color:var(--color-deep-purple,#5A007A); text-decoration:none; padding:.45rem .7rem; border-radius:6px; }

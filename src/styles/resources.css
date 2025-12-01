@@ -1,0 +1,51 @@
+/* Layout & typography */
+.res-container { max-width: 1000px; margin: 2rem auto; padding: 20px; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+.res-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.res-title { margin: 0; font-size: 1.4rem; color: #2c1a4a; }
+.res-lead { color: #555; margin-top: 6px; }
+
+/* Controls */
+.res-controls { margin-top: 14px; display: flex; gap: 12px; align-items: center; }
+.res-small-muted { color: #666; font-size: .95rem; }
+
+/* Buttons */
+.res-btn-primary { padding: .55rem .9rem; background: #5A007A; color: #fff; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.res-btn-ghost { padding: .5rem .85rem; background: transparent; border: 1px solid rgba(0,0,0,0.06); border-radius: 8px; cursor: pointer; }
+.res-btn-primary.saved { opacity: 0.7; cursor: default; }
+
+/* Grid & cards */
+.res-grid { display: grid; gap: 12px; margin-top: 16px; list-style: none; padding: 0; }
+.res-card { background: #fff; padding: 16px; border-radius: 10px; box-shadow: 0 10px 30px rgba(10,10,20,0.04); border: 1px solid rgba(0,0,0,0.04); }
+.res-card-row { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.res-card-meta { flex: 1; }
+.res-card-title { font-size: 1.02rem; display: block; }
+.res-card-desc { margin-top: 8px; color: #444; }
+
+/* Pill */
+.res-pill { display: inline-block; padding: 4px 8px; background: #F6F0FF; color: #5A007A; border-radius: 999px; font-weight: 700; font-size: .85rem; }
+
+/* Actions area inside card */
+.res-card-actions { margin-left: 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+
+/* Details & preview */
+.res-details { margin-top: 12px; padding: 12px; background: #FBFBFF; border-radius: 8px; border: 1px solid rgba(11,12,26,0.03); }
+.res-detail-title { margin: 0; }
+.res-actions { margin-top: 10px; display: flex; gap: 8px; }
+.res-preview-panel { margin-top: 12px; padding: 12px; background: #fff; border: 1px solid rgba(0,0,0,0.04); border-radius: 8px; }
+
+/* Forms */
+.res-form { margin-top: 12px; margin-bottom: 8px; display: grid; gap: 8px; }
+.res-form-input, .res-select, .res-textarea { padding: .6rem .8rem; border-radius: 8px; border: 1px solid #E6E6F0; width: 100%; box-sizing: border-box; }
+.res-form-row { display: flex; gap: 8px; }
+.res-textarea { min-height: 72px; }
+
+/* Footer */
+.res-footer { margin-top: 20px; }
+.res-footer-link { color: inherit; text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 760px) {
+	.res-form-row { flex-direction: column; }
+	.res-card-row { flex-direction: column; align-items: stretch; }
+	.res-card-actions { align-items: stretch; flex-direction: row; justify-content: flex-end; }
+}

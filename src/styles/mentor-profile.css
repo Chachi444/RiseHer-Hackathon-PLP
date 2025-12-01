@@ -1,0 +1,11 @@
+.mentor-container { max-width:1100px; margin:2rem auto; padding:20px; }
+.mp-header { display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.mp-photo { width:180px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.12); }
+.mp-name { margin:0; font-size: clamp(1.5rem, 2.8vw, 2.2rem); color:var(--color-deep-purple,#5A007A); }
+.mp-sub { margin-top:6px; color:#666; }
+.badge { background:#F6F0FF; color:#5A007A; padding:6px 10px; border-radius:999px; font-weight:700; margin-right:6px; display:inline-block; }
+.mp-actions { margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; }
+.btn-primary { padding:.6rem .9rem; background:#FFD700; color:#5A007A; border-radius:8px; text-decoration:none; font-weight:700; }
+.btn-secondary { padding:.55rem .85rem; border:1px solid rgba(0,0,0,0.08); border-radius:8px; text-decoration:none; display:inline-block; }
+.mp-quick { min-width:220px; }
+.mp-quick-card { border-radius:12px; padding:12px; background:#fff; box-shadow:0 8px 20px rgba(0,0,0,0.04); }

@@ -1,0 +1,5 @@
+.settings-page { max-width:900px; margin:2rem auto; padding:20px; }
+.settings-section { margin-top:12px; }
+.form-row { display:flex; gap:12px; align-items:center; margin-top:10px; }
+.muted { color:#666; margin-top:8px; }
+.settings-footer { margin-top:18px; }

@@ -1,0 +1,8 @@
+.hero-media { width:100%; background-image: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.18)), url('/assets/riseher.png'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.hero-content { width:100%; max-width:1300px; padding: clamp(1rem,4vw,2.5rem); box-sizing:border-box; text-align:center; color:#fff; }
+.hero-title { margin:0; font-size: clamp(2rem,7vw,5.2rem); font-weight:800; text-shadow:0 8px 24px rgba(0,0,0,0.6); }
+.hero-sub { margin-top:.75rem; font-size: clamp(1rem,1.8vw,1.25rem); color: rgba(255,255,255,0.95); text-shadow:0 6px 18px rgba(0,0,0,0.5); max-width:72ch; margin-left:auto; margin-right:auto; }
+.hero-ctas { margin-top:1.25rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; }
+.btn-text-arrow { background:transparent; color:#fff; border:none; padding:.6rem 1rem; border-radius:999px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem; }
+.btn-outline-large { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.95); padding:.7rem 1.25rem; border-radius:12px; text-decoration:none; font-weight:700; }
+.btn-ghost-simple { background:transparent; color:#fff; border:none; padding:.6rem 1rem; border-radius:999px; text-decoration:none; font-weight:700; }

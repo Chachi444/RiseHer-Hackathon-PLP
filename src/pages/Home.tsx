@@ -1,91 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
+import '../styles/home.css'; // added
 
 export default function Home() {
-	// Simple inline styles to match the provided design
-	const gridStyle: React.CSSProperties = {
-		display: 'grid',
-		gridTemplateColumns: 'repeat(3, 1fr)',
-		gap: '1.5rem',
-		marginTop: '1rem',
-		alignItems: 'start',
-	};
-
-	const cardStyle: React.CSSProperties = {
-		background: '#FFFFFF',
-		borderRadius: 12,
-		padding: '2rem 1.25rem 1.5rem',
-		boxShadow: '0 10px 30px rgba(16,24,40,0.06)',
-		textAlign: 'center',
-		minHeight: '260px',
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		justifyContent: 'flex-start',
-	};
-
-	const mediaCircle: React.CSSProperties = {
-		width: 110,
-		height: 110,
-		borderRadius: '50%',
-		overflow: 'hidden',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		marginBottom: '1rem',
-		border: '6px solid rgba(231,227,235,0.9)',
-		boxShadow: '0 8px 20px rgba(90,0,122,0.06)',
-	};
-
-	const mediaSquare: React.CSSProperties = {
-		width: 110,
-		height: 110,
-		borderRadius: 12,
-		overflow: 'hidden',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		marginBottom: '1rem',
-		border: '6px solid rgba(231,227,235,0.9)',
-		boxShadow: '0 8px 20px rgba(90,0,122,0.06)',
-		background: '#fff',
-	};
-
-	const titleStyle: React.CSSProperties = {
-		margin: 0,
-		fontSize: '1.05rem',
-		fontWeight: 800,
-		color: 'var(--color-deep-purple, #5A007A)',
-		display: 'flex',
-		gap: '.6rem',
-		alignItems: 'center',
-		justifyContent: 'center',
-	};
-
-	const bodyStyle: React.CSSProperties = {
-		marginTop: '.8rem',
-		color: 'var(--color-dark-gray, #2E2E2E)',
-		opacity: 0.85,
-		lineHeight: 1.5,
-		maxWidth: '44ch',
-	};
-
-	const linkStyle: React.CSSProperties = {
-		// keep the layout behavior (push link to bottom of the card)
-		marginTop: 'auto',
-		color: 'var(--color-deep-purple, #5A007A)',
-		fontWeight: 700,
-		textDecoration: 'none',
-		// duplicate marginTop removed — use marginBottom if additional spacing was intended
-		marginBottom: '1rem',
-	};
-
-	const iconStyle: React.CSSProperties = {
-		fontSize: '1.15rem',
-		display: 'inline-block',
-	};
-
 	// community testimonials (15 items)
 	const testimonials = [
 		{ name: 'Fatima K.', role: 'Voter Educator, Mombasa', quote: 'RIseHer gave me tools to run community workshops safely.', photo: '/assets/one.jpg' },
@@ -128,18 +46,6 @@ export default function Home() {
 	const goPrev = () => setPage(p => (p <= 0 ? maxPage : p - 1));
 	const goNext = () => setPage(p => (p >= maxPage ? 0 : p + 1));
 
-	// carousel styles: track is flex, each page is 100% width and contains 3 cards laid out in a grid
-	const carouselWrap: React.CSSProperties = { marginTop: '1rem', overflow: 'hidden' };
-	const trackStyle = (p: number): React.CSSProperties => ({
-		display: 'flex',
-		width: `${pages.length * 100}%`,
-		transform: `translateX(-${p * (100 / pages.length)}%)`,
-		transition: 'transform .6s cubic-bezier(.2,.9,.2,1)',
-	});
-	const pageStyle: React.CSSProperties = { width: `${100 / pages.length}%`, padding: '0 .5rem', boxSizing: 'border-box' };
-	const cardStyle2: React.CSSProperties = { background: '#fff', borderRadius: 12, padding: '1rem', boxShadow: '0 10px 30px rgba(0,0,0,0.06)', minHeight: 160 };
-	const controlsStyle: React.CSSProperties = { display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12 };
-
 	// partners carousel (uses public/assets/partner1.png ... partner9.png)
 	const partners = [
 		{ id: 1, src: '/assets/partner1.png', alt: 'Partner 1' },
@@ -171,93 +77,67 @@ export default function Home() {
 		};
 	}, [partnerMaxPage]);
 
-	const sliderWrapStyle: React.CSSProperties = { marginTop: 28, overflow: 'hidden' };
-	const sliderTrackStyle = (p: number): React.CSSProperties => ({
-		display: 'flex',
-		width: `${partnerPages.length * 100}%`,
-		transform: `translateX(-${p * (100 / partnerPages.length)}%)`,
-		transition: 'transform .6s ease',
-	});
-	const partnerPageStyle: React.CSSProperties = { width: `${100 / partnerPages.length}%`, display: 'flex', justifyContent: 'space-around', alignItems: 'center', padding: '1rem 0', boxSizing: 'border-box' };
-	const partnerCard: React.CSSProperties = { display: 'flex', alignItems: 'center', justifyContent: 'center', width: '30%', height: 96, background: '#fff', borderRadius: 10, boxShadow: '0 6px 18px rgba(0,0,0,0.06)' };
-	const logoStyle: React.CSSProperties = { maxHeight: 64, maxWidth: '80%', objectFit: 'contain', display: 'block' };
-	const partnerIndicators: React.CSSProperties = { display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12 };
-
 	return (
 		<div>
-			{/* local styles: card hover lift + deeper shadow */}
-			<style>{`
-				.card {
-					transition: transform .24s cubic-bezier(.2,.9,.2,1), box-shadow .24s cubic-bezier(.2,.9,.2,1);
-					will-change: transform, box-shadow;
-				}
-				.card:hover,
-				.card:focus-within {
-					transform: translateY(-8px);
-					box-shadow: 0 20px 40px rgba(90,0,122,0.12);
-				}
-			`}</style>
 			<Hero />
 
-			<section className="quick-highlights container" aria-labelledby="highlights-heading" style={{ padding: '3rem 1rem' }}>
-				<h2 id="highlights-heading" style={{ margin: 0, fontSize: '1.5rem', color: 'var(--color-deep-purple, #5A007A)' }}>
-					Quick Highlights
-				</h2>
+			<section className="quick-highlights container">
+				<h2 className="section-title">Quick Highlights</h2>
 
-				<div style={gridStyle} aria-live="polite">
-					<article className="card" style={cardStyle} aria-labelledby="featured-leader">
-						<div style={mediaCircle}>
+				<div className="home-grid">
+					<article className="card" aria-labelledby="featured-leader">
+						<div className="media-circle">
 							{/* use a safe, existing image filename to avoid casing / special-character issues on Linux */}
-							<img src="/assets/one.jpg" alt="Featured leader" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+							<img src="/assets/one.jpg" alt="Featured leader" />
 						</div>
 
-						<h3 id="featured-leader" style={titleStyle}>
-							<span style={iconStyle} aria-hidden="true">⭐</span>
+						<h3 id="featured-leader" className="card-title">
+							<span aria-hidden="true">⭐</span>
 							<span>Featured Leader</span>
 						</h3>
 
-						<p style={bodyStyle}>
+						<p className="card-body">
 							Meet Mumbi Ndung'u, a renowned development specialist and social entrepreneur, recognized for her leadership in digital development.</p>
 
-						<a className="link" href="#" style={linkStyle}>
+						<a className="card-link" href="#">
 							Learn more
 						</a>
 					</article>
 
-					<article className="card" style={cardStyle} aria-labelledby="upcoming-event">
-						<div style={mediaSquare}>
-							<img src="/assets/Banner.png" alt="Upcoming event illustration" style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 8 }} />
+					<article className="card" aria-labelledby="upcoming-event">
+						<div className="media-square">
+							<img src="/assets/Banner.png" alt="Upcoming event illustration" />
 						</div>
 
-						<h3 id="upcoming-event" style={titleStyle}>
-							<span style={iconStyle} aria-hidden="true">📅</span>
+						<h3 id="upcoming-event" className="card-title">
+							<span aria-hidden="true">📅</span>
 							<span>Upcoming Event</span>
 						</h3>
 
-						<p style={bodyStyle}>
+						<p className="card-body">
 							Join our virtual workshop on "Public Speaking for Leaders" on July 15th. Limited spots available!
 						</p>
 
-						<a className="link" href="/events" style={linkStyle}>
+						<a className="card-link" href="/events">
 							RSVP
 						</a>
 					</article>
 
-					<article className="card" style={cardStyle} aria-labelledby="latest-news">
-						<div style={mediaSquare}>
-							<img src="/assets/News.png" alt="Latest news illustration" style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 8 }} />
+					<article className="card" aria-labelledby="latest-news">
+						<div className="media-square">
+							<img src="/assets/News.png" alt="Latest news illustration" />
 						</div>
 
-						<h3 id="latest-news" style={titleStyle}>
-							<span style={iconStyle} aria-hidden="true">📰</span>
+						<h3 id="latest-news" className="card-title">
+							<span aria-hidden="true">📰</span>
 							<span>Latest News</span>
 						</h3>
 
-						<p style={bodyStyle}>
+						<p className="card-body">
 							Our new report on the state of women in public service in East Africa is now available.
 						</p>
 
-						<a className="link" href="/news" style={linkStyle}>
+						<a className="card-link" href="/news">
 							Read
 						</a>
 					</article>
@@ -265,71 +145,68 @@ export default function Home() {
 			</section>
 
 			{/* Testimonials & Stories */}
-			<section aria-labelledby="testimonials-heading" style={{ padding: '2rem 1rem', background: 'var(--color-soft-lavender, #CBA6F7)', marginTop: 8 }}>
+			<section aria-labelledby="testimonials-heading" className="testimonials-section">
 				<div className="container" style={{ maxWidth: 1100 }}>
-					<h2 id="testimonials-heading" style={{ margin: 0, color: 'var(--color-deep-purple, #5A007A)' }}>Voices from the network</h2>
-					<p style={{ color: 'rgba(46,46,46,0.85)', marginTop: 8 }}>
+					<h2 id="testimonials-heading" className="section-title">Voices from the network</h2>
+					<p className="section-subtitle">
 						Stories and testimonials from women who’ve used RIseHer — mentorship, safety, and opportunities in public life.
 					</p>
 
-					<div style={carouselWrap}>
-						<div style={{ overflow: 'hidden' }}>
-							<div style={trackStyle(page)}>
-								{pages.map((pg, pageIndex) => (
-									<div key={pageIndex} style={pageStyle}>
-										<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
-											{pg.map((t, i) => (
-												<article key={i} style={cardStyle2} aria-label={`Testimonial by ${t.name}`}>
-													<div style={{ display: 'flex', alignItems: 'center' }}>
-														<img src={t.photo} alt={`${t.name} photo`} style={{ width: 56, height: 56, borderRadius: '50%', objectFit: 'cover', marginRight: 12 }} />
-														<div>
-															<strong style={{ display: 'block' }}>{t.name}</strong>
-															<span style={{ color: '#666', fontSize: '.95rem' }}>{t.role}</span>
-														</div>
+					<div className="carousel-wrap">
+						<div className="track" style={{ transform: `translateX(-${page * (100 / pages.length)}%)` }}>
+							{pages.map((pg, pageIndex) => (
+								<div key={pageIndex} className="page" aria-hidden={pageIndex !== page}>
+									<div className="testimonial-grid">
+										{pg.map((t, i) => (
+											<article key={i} className="testimonial-card" aria-label={`Testimonial by ${t.name}`}>
+												<div className="testimonial-header">
+													<img src={t.photo} alt={`${t.name} photo`} className="testimonial-photo" />
+													<div className="testimonial-info">
+														<strong className="testimonial-name">{t.name}</strong>
+														<span className="testimonial-role">{t.role}</span>
 													</div>
-													<p style={{ marginTop: 10, color: 'var(--color-dark-gray, #2E2E2E)' }}>"{t.quote}"</p>
-												</article>
-											))}
-										</div>
+												</div>
+												<p className="testimonial-quote">"{t.quote}"</p>
+											</article>
+										))}
 									</div>
-								))}
-							</div>
+								</div>
+							))}
 						</div>
 
-						<div style={controlsStyle} role="tablist" aria-label="Testimonial pages">
+						<div className="controls" role="tablist" aria-label="Testimonial pages">
 							{pages.map((_, idx) => (
 								<button
 									key={idx}
 									onClick={() => setPage(idx)}
-									onKeyDown={(e) => { if (e.key === 'ArrowLeft') setPage(p => Math.max(0, p - 1)); if (e.key === 'ArrowRight') setPage(p => Math.min(maxPage, p + 1)); }}
 									aria-label={`Go to testimonials page ${idx + 1}`}
 									aria-pressed={idx === page}
-									style={{ width: 10, height: 10, borderRadius: 999, background: idx === page ? '#5A007A' : '#ddd', border: 'none', margin: '0 4px' }}
+									className={`control-button ${idx === page ? 'active' : ''}`}
 								/>
 							))}
 						</div>
 
-						<div style={{ display: 'flex', gap: '.75rem', marginTop: '1rem', justifyContent: 'center' }}>
-							<Link to="/join" style={{ padding: '.6rem 1rem', background: 'var(--color-gold, #FFD700)', color: '#5A007A', borderRadius: 999, textDecoration: 'none', fontWeight: 800 }} aria-label="Join RIseHer — open join form">Join Us</Link>
-							<Link to="/report-harassment" style={{ padding: '.6rem 1rem', background: 'transparent', color: '#fff', border: '2px solid rgba(255,255,255,0.85)', borderRadius: 999, textDecoration: 'none', fontWeight: 700 }} aria-label="Report harassment — open reporting form">Report Harassment</Link>
+						<div className="cta-buttons" style={{ marginTop: '1rem', justifyContent: 'center' }}>
+							<Link to="/join" className="cta-button join-button" aria-label="Join RIseHer — open join form">Join Us</Link>
+							<Link to="/report-harassment" className="cta-button report-button" aria-label="Report harassment — open reporting form">Report Harassment</Link>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			{/* Partners carousel */}
-			<div style={{ padding: '2rem 1rem' }}>
+			<div className="partners-section">
 				<div className="container" style={{ maxWidth: 1100 }}>
-					<h2 style={{ margin: 0, color: 'var(--color-deep-purple, #5A007A)' }}>Our partners</h2>
-					<p style={{ color: '#555', marginTop: 8 }}>We collaborate with organisations across the region.</p>
+					<h2 className="section-title">Our partners</h2>
+					<p className="section-subtitle">We collaborate with organisations across the region.</p>
 
-					<div style={sliderWrapStyle} aria-roledescription="carousel" aria-label="Partner logos carousel">
-						<div style={sliderTrackStyle(partnerPage)}>
+					<div className="slider-wrap" aria-roledescription="carousel" aria-label="Partner logos carousel">
+						<div className="slider-track" style={{ transform: `translateX(-${partnerPage * (100 / partnerPages.length)}%)` }}>
 							{partnerPages.map((pg, pageIndex) => (
-								<div key={pageIndex} style={partnerPageStyle} aria-hidden={pageIndex !== partnerPage}>
+								<div key={pageIndex} className="partner-page" aria-hidden={pageIndex !== partnerPage}>
 									{pg.map((p) => (
-										<div key={p.id} role="group" aria-label={p.alt} style={partnerCard}>
-											<img src={p.src} alt={p.alt} loading="lazy" style={logoStyle} />
+										<div key={p.id} role="group" aria-label={p.alt} className="partner-card">
+											<img src={p.src} alt={p.alt} loading="lazy" className="partner-logo" />
 										</div>
 									))}
 								</div>
@@ -337,14 +214,14 @@ export default function Home() {
 						</div>
 					</div>
 
-					<div style={partnerIndicators} role="tablist" aria-label="Partner pages">
+					<div className="partner-indicators" role="tablist" aria-label="Partner pages">
 						{partnerPages.map((_, idx) => (
 							<button
 								key={idx}
 								onClick={() => setPartnerPage(idx)}
 								aria-label={`Go to partners page ${idx + 1}`}
 								aria-pressed={idx === partnerPage}
-								style={{ width: 10, height: 10, borderRadius: 999, background: idx === partnerPage ? '#5A007A' : '#ddd', border: 'none', cursor: 'pointer' }}
+								className={`partner-control-button ${idx === partnerPage ? 'active' : ''}`}
 							/>
 						))}
 					</div>

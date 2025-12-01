@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import '../styles/mentor-profile.css';
 
 type Mentor = {
   id: number;
@@ -82,7 +83,7 @@ export default function MentorProfile() {
 
   if (!mentor) {
     return (
-      <div style={{ maxWidth: 900, margin: '2rem auto', padding: 20 }}>
+      <div className="mpage-notfound">
         <h1>Mentor not found</h1>
         <p>The mentor you requested could not be found.</p>
         <Link to="/mentorship">Back to mentors</Link>
@@ -90,63 +91,55 @@ export default function MentorProfile() {
     );
   }
 
-  const container: React.CSSProperties = { maxWidth: 1100, margin: '2rem auto', padding: 20 };
-  const headerStyle: React.CSSProperties = { display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' };
-  const photoStyle: React.CSSProperties = { width: 180, height: 180, objectFit: 'cover', borderRadius: 12, boxShadow: '0 12px 30px rgba(0,0,0,0.12)' };
-  const nameStyle: React.CSSProperties = { margin: 0, fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)', color: 'var(--color-deep-purple, #5A007A)' };
-  const metaStyle: React.CSSProperties = { marginTop: 6, color: '#666' };
-  const section: React.CSSProperties = { marginTop: 18, background: '#fff', padding: 18, borderRadius: 12, boxShadow: '0 10px 30px rgba(16,24,40,0.06)' };
-  const badge: React.CSSProperties = { background: '#F6F0FF', color: '#5A007A', padding: '6px 10px', borderRadius: 999, fontWeight: 700, fontSize: '.9rem' };
-  const actionPrimary: React.CSSProperties = { padding: '.6rem .9rem', background: '#FFD700', color: '#5A007A', borderRadius: 8, textDecoration: 'none', fontWeight: 700, display: 'inline-block' };
-  const actionSecondary: React.CSSProperties = { padding: '.55rem .85rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: 8, textDecoration: 'none', display: 'inline-block' };
-
   return (
-    <main style={container} role="main" aria-labelledby="mentor-name">
-      <div style={headerStyle}>
-        <img src={mentor.photo} alt={`${mentor.name} photo`} style={photoStyle} />
-        <div style={{ flex: 1, minWidth: 260 }}>
-          <h1 id="mentor-name" style={nameStyle}>
+    <main className="mentor-container" role="main" aria-labelledby="mentor-name">
+      <div className="mp-header">
+        <img src={mentor.photo} alt={`${mentor.name} photo`} className="mp-photo" />
+        <div className="mp-meta">
+          <h1 id="mentor-name" className="mp-name">
             {mentor.name}
           </h1>
-          <div style={metaStyle}>
+          <div className="mp-sub">
             <strong>{mentor.title}</strong> • {mentor.location}
           </div>
 
-          <div style={{ marginTop: 12, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          <div className="mp-badges">
             {mentor.expertise?.slice(0, 4).map((e) => (
-              <span key={e} style={badge}>
+              <span key={e} className="badge">
                 {e}
               </span>
             ))}
           </div>
 
-          <div style={{ marginTop: 14, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+          <div className="mp-actions">
             <a
               href={`/mentorship/request?mentorId=${mentor.id}`}
-              style={actionPrimary}
+              className="btn-primary"
               aria-label={`Request an introduction to ${mentor.name}`}
             >
               Request an introduction
             </a>
-
-            {/* Opens contact page (pre-filled) instead of mailto */}
             <a
               href={`/contact?name=${encodeURIComponent(mentor.name)}&email=${encodeURIComponent(mentor.contact?.email || '')}`}
-              style={actionSecondary}
+              className="btn-secondary"
               aria-label={`Contact ${mentor.name}`}
             >
               Contact
             </a>
-
             {mentor.cv && (
-              <a href={mentor.cv} target="_blank" rel="noopener noreferrer" style={actionSecondary} aria-label="Download CV">
+              <a
+                href={mentor.cv}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                aria-label="Download CV"
+              >
                 Download CV
               </a>
             )}
-
             <button
               onClick={() => window.print()}
-              style={{ ...actionSecondary, background: 'transparent', cursor: 'pointer' }}
+              className="btn-secondary"
               aria-label="Print profile"
             >
               Print
@@ -154,78 +147,64 @@ export default function MentorProfile() {
           </div>
         </div>
 
-        <div style={{ minWidth: 220 }}>
-          <div style={{ borderRadius: 12, padding: 12, background: '#fff', boxShadow: '0 8px 20px rgba(0,0,0,0.04)' }}>
-            <strong style={{ display: 'block', marginBottom: 8 }}>Quick info</strong>
-            <div style={{ color: '#444', marginBottom: 8 }}>
+        <aside className="mp-quick">
+          <div className="mp-quick-card">
+            <strong>Quick info</strong>
+            <div className="muted">
               <div><strong>Location:</strong> {mentor.location}</div>
               <div><strong>Availability:</strong> By request</div>
               <div><strong>Expertise:</strong> {mentor.expertise?.slice(0, 3).join(', ')}</div>
             </div>
-
-            <div style={{ marginTop: 8 }}>
-              <a href={`/mentorship/request?mentorId=${mentor.id}`} style={actionPrimary} aria-label="Request intro (open) on quick info">
+            <div className="mp-quick-actions">
+              <a
+                href={`/mentorship/request?mentorId=${mentor.id}`}
+                className="btn-primary"
+                aria-label="Request intro (open) on quick info"
+              >
                 Request intro
               </a>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
 
-      <section aria-labelledby="about" style={{ marginTop: 18 }}>
-        <div style={section}>
-          <h2 id="about" style={{ marginTop: 0 }}>About</h2>
-          <p style={{ color: '#333' }}>{mentor.bio}</p>
+      <section aria-labelledby="about" className="mp-section">
+        <div className="mp-content">
+          <h2 id="about" className="mp-title">About</h2>
+          <p className="mp-bio">{mentor.bio}</p>
         </div>
       </section>
 
-      <section aria-labelledby="experience" style={{ marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 380px', gap: 12 }}>
-        <div>
-          <div style={section}>
-            <h3 id="experience" style={{ marginTop: 0 }}>Selected experience</h3>
-            <ul>
-              {mentor.experience?.map((ex, i) => (
-                <li key={i} style={{ marginBottom: 8 }}>{ex}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div style={{ ...section, marginTop: 12 }}>
-            <h3 style={{ marginTop: 0 }}>Publications & resources</h3>
-            {mentor.publications && mentor.publications.length ? (
-              <ul>
-                {mentor.publications.map((p, i) => (
-                  <li key={i} style={{ marginBottom: 8 }}>
-                    {p.link ? <a href={p.link} target="_blank" rel="noopener noreferrer">{p.title}</a> : p.title}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p style={{ color: '#666' }}>No publications listed.</p>
-            )}
-          </div>
+      <section aria-labelledby="experience" className="mp-section mp-experience">
+        <div className="mp-content">
+          <h3 id="experience" className="mp-title">Selected experience</h3>
+          <ul className="mp-experience-list">
+            {mentor.experience?.map((ex, i) => (
+              <li key={i} className="mp-experience-item">{ex}</li>
+            ))}
+          </ul>
         </div>
 
-        <aside>
-          <div style={section}>
-            <h4 style={{ marginTop: 0 }}>Credentials</h4>
-            <div style={{ color: '#444' }}>{mentor.credentials?.join(' · ')}</div>
+        <aside className="mp-aside">
+          <div className="mp-card">
+            <h4 className="mp-subtitle">Credentials</h4>
+            <div className="mp-credentials">{mentor.credentials?.join(' · ')}</div>
           </div>
 
-          <div style={{ ...section, marginTop: 12 }}>
-            <h4 style={{ marginTop: 0 }}>Testimonials</h4>
+          <div className="mp-card mp-testimonials">
+            <h4 className="mp-subtitle">Testimonials</h4>
             {mentor.testimonials?.map((t, i) => (
-              <blockquote key={i} style={{ margin: '8px 0', color: '#333' }}>
+              <blockquote key={i} className="mp-testimonial">
                 “{t.quote}”
-                <div style={{ marginTop: 6, fontSize: '.95rem', color: '#666' }}>— {t.from}</div>
+                <div className="mp-testimonial-author">— {t.from}</div>
               </blockquote>
             ))}
           </div>
         </aside>
       </section>
 
-      <div style={{ marginTop: 18 }}>
-        <Link to="/mentorship" aria-label="Back to mentors">Back to mentors</Link>
+      <div className="mp-footer">
+        <Link to="/mentorship" className="mp-back" aria-label="Back to mentors">Back to mentors</Link>
       </div>
     </main>
   );

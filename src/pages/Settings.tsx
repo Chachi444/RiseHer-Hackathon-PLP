@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/settings.css';
 
 export default function Settings() {
   const [emailNotifs, setEmailNotifs] = useState(true);
   const [safeMode, setSafeMode] = useState(false);
 
   return (
-    <div style={{ maxWidth: 900, margin: '2rem auto', padding: 20 }}>
+    <div className="settings-page">
       <h1>Settings</h1>
-      <section style={{ marginTop: 12 }}>
-        <h2 style={{ margin: 0 }}>Notifications</h2>
-        <label style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 10 }}>
+      <section className="settings-section">
+        <h2>Notifications</h2>
+        <label className="form-row">
           <input type="checkbox" checked={emailNotifs} onChange={() => setEmailNotifs(s => !s)} />
           <span>Receive email notifications</span>
         </label>
       </section>
 
-      <section style={{ marginTop: 18 }}>
-        <h2 style={{ margin: 0 }}>Safety & privacy</h2>
-        <label style={{ display: 'flex', gap: 12, alignItems: 'center', marginTop: 10 }}>
+      <section className="settings-section">
+        <h2>Safety & privacy</h2>
+        <label className="form-row">
           <input type="checkbox" checked={safeMode} onChange={() => setSafeMode(s => !s)} />
           <span>Enable Safe browsing mode</span>
         </label>
-        <p style={{ color: '#666', marginTop: 8 }}>Safe mode hides location and profile photo from directory listings.</p>
+        <p className="muted">Safe mode hides location and profile photo from directory listings.</p>
       </section>
 
-      <div style={{ marginTop: 18 }}>
-        <Link to="/dashboard" aria-label="Go back to dashboard">Go back</Link>
+      <div className="settings-footer">
+        <Link to="/dashboard">Go back</Link>
       </div>
     </div>
   );

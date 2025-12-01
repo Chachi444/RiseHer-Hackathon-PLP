@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/stories.css';
 
 export default function Stories() {
   const [form, setForm] = useState({ title: '', body: '', anonymous: false });
@@ -31,53 +32,36 @@ export default function Stories() {
   };
 
   return (
-    <main style={{ maxWidth: 860, margin: '2rem auto', padding: 20 }}>
-      <h1 style={{ marginTop: 0, color: 'var(--color-deep-purple, #5A007A)' }}>Share Your Story</h1>
-      <p style={{ color: '#555' }}>
+    <main className="stories-page">
+      <h1 className="stories-title">Share Your Story</h1>
+      <p className="stories-lead">
         Tell us about your experience in public life or public service. You can submit anonymously — we'll review and publish selected stories to inspire others.
       </p>
 
-      <form onSubmit={onSubmit} aria-describedby="stories-status" style={{ marginTop: 12 }}>
-        <label style={{ display: 'block', marginTop: 12 }}>
+      <form onSubmit={onSubmit} className="stories-form" aria-describedby="stories-status">
+        <label className="form-row">
           Title
-          <input
-            name="title"
-            value={form.title}
-            onChange={onChange}
-            required
-            aria-required="true"
-            style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, border: '1px solid #ddd', marginTop: 6 }}
-          />
+          <input name="title" value={form.title} onChange={onChange} required className="form-input" />
         </label>
 
-        <label style={{ display: 'block', marginTop: 12 }}>
+        <label className="form-row">
           Story
-          <textarea
-            name="body"
-            value={form.body}
-            onChange={onChange}
-            required
-            aria-required="true"
-            rows={8}
-            style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, border: '1px solid #ddd', marginTop: 6 }}
-          />
+          <textarea name="body" value={form.body} onChange={onChange} required rows={8} className="form-textarea" />
         </label>
 
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center', marginTop: 12 }}>
+        <label className="form-checkbox">
           <input name="anonymous" type="checkbox" checked={form.anonymous} onChange={onChange} />
           <span>Submit anonymously</span>
         </label>
 
-        <div style={{ marginTop: 14, display: 'flex', gap: 12 }}>
-          <button type="submit" style={{ padding: '.6rem .95rem', background: 'var(--color-gold, #FFD700)', color: 'var(--color-deep-purple, #5A007A)', border: 'none', borderRadius: 8, fontWeight: 800 }}>
-            Submit story
-          </button>
-          <Link to="/visibility" style={{ alignSelf: 'center' }}>Go back</Link>
+        <div className="form-actions">
+          <button type="submit" className="btn-primary">Submit story</button>
+          <Link to="/visibility" className="link">Go back</Link>
         </div>
 
-        <div id="stories-status" aria-live="polite" style={{ marginTop: 12 }}>
-          {status === 'error' && <div style={{ color: '#c0392b' }}>Please provide a title (3+ chars) and a longer story (10+ chars).</div>}
-          {status === 'success' && <div style={{ color: 'green' }}>Thanks — your story was submitted for review.</div>}
+        <div id="stories-status" aria-live="polite" className="form-status">
+          {status === 'error' && <div className="error">Please provide a title (3+ chars) and a longer story (10+ chars).</div>}
+          {status === 'success' && <div className="success">Thanks — your story was submitted for review.</div>}
         </div>
       </form>
     </main>

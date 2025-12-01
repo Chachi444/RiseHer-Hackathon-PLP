@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import '../styles/join.css';
 
 export default function Join() {
   const navigate = useNavigate();
@@ -56,76 +57,69 @@ export default function Join() {
     }, 900);
   };
 
-  const formWrap: React.CSSProperties = { maxWidth: 760, margin: '2rem auto', padding: '1.25rem' };
-  const field: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 12 };
-  const labelStyle: React.CSSProperties = { fontWeight: 700, color: 'var(--color-deep-purple, #5A007A)' };
-  const inputStyle: React.CSSProperties = { padding: '0.65rem .9rem', borderRadius: 8, border: '1px solid #DDD', fontSize: '1rem' };
-  const submitStyle: React.CSSProperties = { background: '#FFD700', color: '#5A007A', padding: '.7rem 1.1rem', borderRadius: 10, border: 'none', fontWeight: 800, cursor: 'pointer' };
-  const noteStyle: React.CSSProperties = { marginTop: 12, color: 'var(--color-dark-gray, #2E2E2E)', opacity: 0.9 };
-
   return (
-    <div style={formWrap}>
-      <h1 style={{ marginTop: 0, color: 'var(--color-deep-purple, #5A007A)' }}>Join the RIseHer Network</h1>
-      <p style={{ marginTop: 0, marginBottom: 12 }}>
+    <div className="join-page">
+      <h1 className="join-title">Join the RIseHer Network</h1>
+      <p className="join-lead">
         Sign up to access mentorship, events, resources, and community. We'll never share your personal details without consent.
       </p>
 
-      <form onSubmit={onSubmit} aria-describedby="join-status">
-        <div style={field}>
-          <label htmlFor="photo" style={labelStyle}>Profile photo (optional)</label>
-          <input id="photo" name="photo" type="file" accept="image/*" onChange={onFileChange} style={inputStyle} />
+      <form onSubmit={onSubmit} className="join-form" aria-describedby="join-status">
+        <div className="form-field">
+          <label className="form-label">Profile photo (optional)</label>
+          <input id="photo" name="photo" type="file" accept="image/*" onChange={onFileChange} className="form-input" />
           {form.photo && (
             <img
               src={form.photo}
               alt="Profile preview"
-              style={{ width: 88, height: 88, objectFit: 'cover', borderRadius: 12, marginTop: 10, border: '2px solid rgba(0,0,0,0.06)' }}
+              className="join-avatar"
             />
           )}
         </div>
 
-        <div style={field}>
-          <label htmlFor="name" style={labelStyle}>Full name</label>
-          <input id="name" name="name" value={form.name} onChange={onChange} style={inputStyle} required aria-required="true" />
+        <div className="form-field">
+          <label className="form-label">Full name</label>
+          <input id="name" name="name" value={form.name} onChange={onChange} className="form-input" required aria-required="true" />
         </div>
 
-        <div style={field}>
-          <label htmlFor="email" style={labelStyle}>Email address</label>
-          <input id="email" name="email" type="email" value={form.email} onChange={onChange} style={inputStyle} required aria-required="true" />
+        <div className="form-field">
+          <label className="form-label">Email address</label>
+          <input id="email" name="email" type="email" value={form.email} onChange={onChange} className="form-input" required aria-required="true" />
         </div>
 
-        <div style={field}>
-          <label htmlFor="role" style={labelStyle}>I am a</label>
-          <select id="role" name="role" value={form.role} onChange={onChange} style={inputStyle}>
+        <div className="form-field">
+          <label className="form-label">I am a</label>
+          <select id="role" name="role" value={form.role} onChange={onChange} className="form-input">
             <option value="mentee">Mentee / Emerging leader</option>
             <option value="mentor">Mentor / Sponsor</option>
             <option value="other">Other (ally, organizer)</option>
           </select>
         </div>
 
-        <div style={field}>
-          <label htmlFor="location" style={labelStyle}>Location (city, country)</label>
-          <input id="location" name="location" value={form.location} onChange={onChange} style={inputStyle} />
+        <div className="form-field">
+          <label className="form-label">Location (city, country)</label>
+          <input id="location" name="location" value={form.location} onChange={onChange} className="form-input" />
         </div>
 
-        <div style={field}>
-          <label htmlFor="about" style={labelStyle}>Brief bio / areas of interest</label>
-          <textarea id="about" name="about" value={form.about} onChange={onChange} rows={4} style={{ ...inputStyle, resize: 'vertical' }} />
+        <div className="form-field">
+          <label className="form-label">Brief bio / areas of interest</label>
+          <textarea id="about" name="about" value={form.about} onChange={onChange} rows={4} className="form-input" />
         </div>
 
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <button type="submit" style={submitStyle} disabled={submitting} aria-label="Sign up">
+        <div className="form-actions">
+          <button type="submit" className="btn-primary" disabled={submitting} aria-label="Sign up">
             {submitting ? 'Signing up…' : 'Sign up'}
           </button>
 
           {/* Cancel is navigation — use Link for accessible navigation */}
-          <Link to="/" style={{ background: 'transparent', border: 'none', color: 'var(--color-deep-purple, #5A007A)', cursor: 'pointer', padding: '.55rem .9rem', textDecoration: 'none' }} aria-label="Cancel sign up and go home">
+          <Link to="/" className="link cancel" aria-label="Cancel sign up and go home">
             Cancel
           </Link>
         </div>
 
-        <div id="join-status" aria-live="polite" style={noteStyle}>
-          {status === 'error' && <span style={{ color: '#D9534F' }}>Please provide a valid name and email.</span>}
-          {status === 'success' && <span style={{ color: 'green' }}>Thank you — your sign up was received. Check your email for next steps.</span>}
+        <div id="join-status" aria-live="polite" className="join-note">
+          {status === 'error' && <span className="error">Please provide a valid name and email.</span>}
+          {status === 'success' && <span className="success">Thank you — your sign up was received. Check your email for next steps.</span>}
         </div>
       </form>
     </div>

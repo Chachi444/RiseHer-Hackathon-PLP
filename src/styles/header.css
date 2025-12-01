@@ -1,0 +1,10 @@
+.site-header { background: transparent; padding: 12px 0; }
+.header-inner { display:flex; align-items:center; gap:16px; justify-content:space-between; max-width:1200px; margin:0 auto; padding:0 12px; }
+.skip-link { position:absolute; left:-9999px; top:auto; height:1px; width:1px; overflow:hidden; }
+.brand { display:flex; align-items:center; gap:8px; text-decoration:none; color:inherit; }
+.logo { height:36px; display:block; }
+.main-nav a { margin: 0 .5rem; text-decoration:none; color:inherit; }
+.header-ctas .btn { margin-left:8px; }
+.btn-ghost { padding:.45rem .7rem; border:1px solid rgba(0,0,0,0.06); background:transparent; border-radius:8px; text-decoration:none; color:inherit; }
+.btn-primary { padding:.45rem .9rem; background: var(--color-gold,#FFD700); color: var(--color-deep-purple,#5A007A); border-radius:8px; text-decoration:none; }
+.sr-only { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }

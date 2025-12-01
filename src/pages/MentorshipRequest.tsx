@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import '../styles/mentorship-request.css'; // added
 
 export default function MentorshipRequest() {
   const [searchParams] = useSearchParams();
@@ -51,41 +52,41 @@ export default function MentorshipRequest() {
   const selectedMentor = mentors.find(m => m.id === form.mentorId);
 
   return (
-    <div style={{ maxWidth: 760, margin: '2rem auto', padding: 20 }}>
-      <h1 style={{ marginTop: 0 }}>Request an introduction</h1>
-      <p style={{ color: '#555' }}>Fill this form to request an intro to a mentor. We will send your request and follow up by email.</p>
+    <div className="request-page">
+      <h1>Request an introduction</h1>
+      <p className="muted">Fill this form to request an intro to a mentor. We will send your request and follow up by email.</p>
 
-      <form onSubmit={onSubmit} aria-describedby="request-status" style={{ marginTop: 12 }}>
-        <label style={{ display: 'block', marginBottom: 10 }}>
+      <form onSubmit={onSubmit} className="request-form" aria-describedby="request-status">
+        <label className="form-row">
           Mentor
-          <select name="mentorId" value={form.mentorId} onChange={onChange} style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }}>
+          <select name="mentorId" value={form.mentorId} onChange={onChange} className="form-input">
             {mentors.map(m => <option key={m.id} value={m.id}>{m.name}</option>)}
           </select>
         </label>
 
-        <label style={{ display: 'block', marginBottom: 10 }}>
+        <label className="form-row">
           Your name
-          <input name="name" value={form.name} onChange={onChange} style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }} required />
+          <input name="name" value={form.name} onChange={onChange} className="form-input" required />
         </label>
 
-        <label style={{ display: 'block', marginBottom: 10 }}>
+        <label className="form-row">
           Your email
-          <input name="email" type="email" value={form.email} onChange={onChange} style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }} required />
+          <input name="email" type="email" value={form.email} onChange={onChange} className="form-input" required />
         </label>
 
-        <label style={{ display: 'block', marginBottom: 10 }}>
+        <label className="form-row">
           Message / context
-          <textarea name="message" value={form.message} onChange={onChange} rows={5} style={{ display: 'block', width: '100%', padding: '.6rem .8rem', borderRadius: 8, marginTop: 6 }} required />
+          <textarea name="message" value={form.message} onChange={onChange} rows={5} className="form-textarea" required />
         </label>
 
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <button type="submit" style={{ padding: '.6rem .9rem', background: '#5A007A', color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700 }}>Send request</button>
-          <Link to={`/mentorship/profile/${selectedMentor?.id || mentors[0].id}`} aria-label="Back to mentor profile">Back to profile</Link>
+        <div className="form-actions">
+          <button type="submit" className="btn-primary">Send request</button>
+          <Link to={`/mentorship/profile/${selectedMentor?.id || mentors[0].id}`}>Back to profile</Link>
         </div>
 
-        <div id="request-status" aria-live="polite" style={{ marginTop: 12 }}>
-          {status === 'error' && <div style={{ color: '#c0392b' }}>Please complete the form correctly.</div>}
-          {status === 'success' && <div style={{ color: 'green' }}>Request sent. We'll notify you by email when there's an update.</div>}
+        <div id="request-status" className="form-status" aria-live="polite">
+          {status === 'error' && <div className="error">Please complete the form correctly.</div>}
+          {status === 'success' && <div className="success">Request sent. We'll notify you by email when there's an update.</div>}
         </div>
       </form>
     </div>

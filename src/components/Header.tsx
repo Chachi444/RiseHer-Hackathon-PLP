@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import '../styles/header.css'; // added
 
 export default function Header() {
   return (
     <header className="site-header" role="banner">
       <div className="container header-inner">
         {/* Skip link for keyboard users */}
-        <a href="#main" className="skip-link" style={{ position: 'absolute', left: -9999, top: 'auto' , height: 1, width: 1, overflow: 'hidden' }}>
+        <a href="#main" className="skip-link">
           Skip to main content
         </a>
 
