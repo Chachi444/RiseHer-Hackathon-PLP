@@ -1,9 +1,32 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 5173
-  }
+export default defineConfig(async () => {
+	// Dynamically import the ESM-only plugin at runtime to avoid esbuild's require error.
+	const reactPlugin = (await import('@vitejs/plugin-react')).default;
+
+	return {
+		// Ensure static files in /public are served as-is in production
+		publicDir: 'public',
+
+		// Set base to root (adjust if deploying to a subpath)
+		base: process.env.BASE_PATH || '/',
+
+		plugins: [
+			reactPlugin()
+		],
+		server: {
+			port: 5173
+		},
+		build: {
+			// Avoid inlining images (so they become separate files on Vercel)
+			assetsInlineLimit: 0,
+			assetsDir: 'assets',
+			rollupOptions: {
+				output: {
+					// Emit assets to assets/ with stable names (hash helps cache busting)
+					assetFileNames: 'assets/[name]-[hash][extname]'
+				}
+			}
+		}
+	};
 });

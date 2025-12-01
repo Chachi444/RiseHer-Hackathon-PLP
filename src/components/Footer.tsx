@@ -19,9 +19,9 @@ export default function Footer() {
 
         <div className="socials" aria-label="Social links">
           <a href="#" aria-label="Instagram"><img src="/assets/Instagram.png" alt="Instagram" /></a>
-          <a href="#" aria-label="TikTok"><img src="/assets/tiktok.png" alt="TikTok" /></a>
-          <a href="#" aria-label="LinkedIn"><img src="/assets/linkedin.png" alt="LinkedIn" /></a>
-          <a href="#" aria-label="Twitter"><img src="/assets/twitter.png" alt="Twitter" /></a>
+          <a href="#" aria-label="TikTok"><img src="/assets/Tiktok.png" alt="TikTok" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="/assets/linkedIn.png" alt="LinkedIn" /></a>
+          <a href="#" aria-label="Twitter"><img src="/assets/Twitter.png" alt="Twitter" /></a>
         </div>
       </div>
 
