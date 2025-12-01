@@ -48,15 +48,15 @@ export default function Home() {
 
 	// partners carousel (uses public/assets/partner1.png ... partner9.png)
 	const partners = [
-		{ id: 1, src: '/assets/partner1.png', alt: 'Partner 1' },
-		{ id: 2, src: '/assets/partner2.png', alt: 'Partner 2' },
-		{ id: 3, src: '/assets/partner3.png', alt: 'Partner 3' },
-		{ id: 4, src: '/assets/partner4.png', alt: 'Partner 4' },
-		{ id: 5, src: '/assets/partner5.png', alt: 'Partner 5' },
-		{ id: 6, src: '/assets/partner6.png', alt: 'Partner 6' },
-		{ id: 7, src: '/assets/partner6.png', alt: 'Partner 6' },
-		{ id: 8, src: '/assets/partner5.png', alt: 'Partner 8' },
-		{ id: 9, src: '/assets/partner6.png', alt: 'Partner 9' },
+		{ id: 1, src: '/assets/Partner1.png', alt: 'Partner 1' },
+		{ id: 2, src: '/assets/Partner2.png', alt: 'Partner 2' },
+		{ id: 3, src: '/assets/Partner3.png', alt: 'Partner 3' },
+		{ id: 4, src: '/assets/Partner4.png', alt: 'Partner 4' },
+		{ id: 5, src: '/assets/Partner5.png', alt: 'Partner 5' },
+		{ id: 6, src: '/assets/Partner6.png', alt: 'Partner 6' },
+		{ id: 7, src: '/assets/Partner6.png', alt: 'Partner 6' },
+		{ id: 8, src: '/assets/Partner5.png', alt: 'Partner 8' },
+		{ id: 9, src: '/assets/Partner6.png', alt: 'Partner 9' },
 	];
 
 	const partnersPerPage = 3;

@@ -9,7 +9,7 @@ export default defineConfig(async () => {
 		publicDir: 'public',
 
 		// Set base to root (adjust if deploying to a subpath)
-		base: process.env.BASE_PATH || '/',
+		base: '/',
 
 		plugins: [
 			reactPlugin()
