@@ -8,3 +8,105 @@
 .card-title { margin:0; font-size:1.05rem; font-weight:800; color:var(--color-deep-purple,#5A007A); display:flex; gap:.6rem; align-items:center; justify-content:center; }
 .card-body { margin-top:.8rem; color:var(--color-dark-gray,#2E2E2E); opacity:0.85; line-height:1.5; max-width:44ch; }
 .card-link { margin-top:auto; color:var(--color-deep-purple,#5A007A); font-weight:700; text-decoration:none; margin-bottom:1rem; }
+/* Testimonials (Voices from the network) */
+.testimonials-section { padding: 2rem 1rem; background: var(--color-soft-lavender, #F4EFFF); margin-top: 1rem; }
+.testimonials-section .container { max-width: 1100px; margin: 0 auto; }
+.carousel-wrap { margin-top: 1rem; }
+.track { display: flex; width: 100%; transition: transform .6s cubic-bezier(.2,.9,.2,1); will-change: transform; }
+.page { width: 100%; padding: 0 .5rem; box-sizing: border-box; }
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.testimonial-card { background: #fff; border-radius: 12px; padding: 1rem; box-shadow: 0 10px 30px rgba(16,24,40,0.06); min-height: 150px; display: flex; flex-direction: column; }
+.testimonial-header { display:flex; gap:12px; align-items:center; }
+.testimonial-photo { width:56px; height:56px; border-radius:50%; object-fit:cover; flex:0 0 56px; }
+.testimonial-info { display:flex; flex-direction:column; }
+.testimonial-name { font-weight:800; color: #2c1a4a; }
+.testimonial-role { color: #6b6b6b; font-size: .92rem; margin-top:2px; }
+.testimonial-quote {
+  margin-top: 8px;
+  color: #333;
+  line-height: 1.5;
+  flex: 1;
+  font-style: italic;
+  font-size: 1.02rem;
+  background: rgba(90,0,122,0.03);
+  padding: 10px;
+  border-radius: 8px;
+}
+/* testimonial page controls (dots) */
+.controls { display:flex; gap:8px; justify-content:center; margin-top:12px; }
+.control-button { width:10px; height:10px; border-radius:999px; background:#ddd; border: none; cursor:pointer; padding:0; }
+.control-button.active { background: var(--color-deep-purple,#5A007A); }
+/* CTA row under testimonials */
+.cta-buttons { display:flex; gap:.8rem; margin-top: 1rem; justify-content:center; flex-wrap:wrap; }
+.cta-button { padding:.6rem 1rem; border-radius:999px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+.join-button { background: var(--color-gold,#FFD700); color: var(--color-deep-purple,#5A007A); }
+.report-button { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.85); }
+/* Partners carousel */
+.partners-section { padding: 2rem 1rem; }
+.slider-wrap { overflow: hidden; margin-top: 12px; }
+.slider-track { display:flex; width:100%; transition: transform .6s ease; will-change: transform; }
+.partner-page { width: 100%; display:flex; justify-content:space-around; align-items:center; box-sizing:border-box; padding: 1rem 0; }
+.partner-card { display:flex; align-items:center; justify-content:center; width:30%; height:96px; background:#fff; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+.partner-logo { max-height:64px; max-width:80%; object-fit:contain; display:block; }
+/* partner indicators */
+.partner-indicators { display:flex; gap:8px; justify-content:center; margin-top:12px; }
+.partner-control-button { width:10px; height:10px; border-radius:999px; background:#ddd; border:none; cursor:pointer; }
+.partner-control-button.active { background: var(--color-deep-purple,#5A007A); }
+/* Ensure media containers have explicit sizes and images fill them */
+.media-circle,
+.media-square {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 50%; /* media-circle keeps round; media-square will override if needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6f6f8; /* light fallback if image missing */
+}
+
+/* Allow square variant to use rounded rect */
+.media-square { border-radius: 12px; }
+
+/* Make images fill and crop as needed */
+.media-circle img,
+.media-square img,
+.testimonial-photo,
+.partner-logo,
+.mentor-photo,
+.lp-photo,
+.avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Testimonial header photo sized and with fallback border */
+.testimonial-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #efeef6;
+  flex: 0 0 56px;
+  object-fit: cover;
+}
+
+/* If image fails to load, ensure layout still looks OK */
+.testimonial-card img[alt=""] { visibility: hidden; }
+
+/* Slight spacing tweak to ensure image and text align */
+.testimonial-header { align-items: center; gap: 12px; }
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .page { padding: 0 .25rem; }
+  .partner-card { width: 45%; height:80px; }
+}
+
+@media (max-width: 560px) {
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .partner-card { width: 100%; }
+  .cta-buttons { flex-direction: column; gap: 0.6rem; }
+}

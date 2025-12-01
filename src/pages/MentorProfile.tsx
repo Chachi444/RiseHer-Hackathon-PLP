@@ -24,7 +24,7 @@ const mentors: Mentor[] = [
     name: 'Lara Mensah',
     title: 'City Councilor • Civic Tech',
     location: 'Accra',
-    photo: '/assets/one.jpg',
+    photo: '/assets/placeholder.svg',
     bio:
       'Lara Mensah is a civic-technology and public-policy leader with 12+ years of experience designing inclusive civic services, participatory budgeting programs, and civic data initiatives. She advises local governments and trains community leaders.',
     expertise: ['Civic Tech', 'Participatory Budgeting', 'Public Policy', 'Community Engagement'],
@@ -42,14 +42,14 @@ const mentors: Mentor[] = [
       { from: 'Mayor E. Kwame', quote: 'Lara’s initiatives transformed civic engagement in our city.' },
     ],
     contact: { email: 'lara@example.org', website: 'https://example.org/lara' },
-    cv: '/assets/lara-cv.pdf',
+    cv: '/assets/placeholder.pdf',
   },
   {
     id: 2,
     name: 'Aisha Gomez',
     title: 'Community Organizer • Public Policy',
     location: 'Nairobi',
-    photo: '/assets/one.jpg',
+    photo: '/assets/placeholder.svg',
     bio:
       'Aisha leads grassroots mobilization and training programs focused on women’s civic participation, safe campaigning, and leadership development.',
     expertise: ['Organizing', 'Leadership Training', 'Safe Campaigning'],
@@ -58,14 +58,14 @@ const mentors: Mentor[] = [
     publications: [],
     testimonials: [{ from: 'Program Director', quote: 'Aisha builds powerful community networks and trains durable leaders.' }],
     contact: { email: 'aisha@example.org' },
-    cv: '/assets/aisha-cv.pdf',
+    cv: '/assets/placeholder.pdf',
   },
   {
     id: 3,
     name: 'Nora Okoye',
     title: 'Campaign Strategist',
     location: 'Lagos',
-    photo: '/assets/one.jpg',
+    photo: '/assets/placeholder.svg',
     bio:
       'Nora is a campaign strategist with deep experience in outreach design, evidence-driven messaging and digital safety protocols for civic initiatives.',
     expertise: ['Campaign Strategy', 'Digital Safety', 'Stakeholder Engagement'],
@@ -73,7 +73,7 @@ const mentors: Mentor[] = [
     credentials: ['Certificate, Digital Security for Campaigns'],
     testimonials: [{ from: 'Campaign Lead', quote: 'Nora’s strategies consistently deliver strong voter engagement.' }],
     contact: { email: 'nora@example.org' },
-    cv: '/assets/nora-cv.pdf',
+    cv: '/assets/placeholder.pdf',
   },
 ];
 

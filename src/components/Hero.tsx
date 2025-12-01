@@ -13,7 +13,7 @@ export default function Hero() {
         aria-label="RIseHer banner image featuring diverse women leaders"
         style={{ height: heroHeight }} // small dynamic override left in place
       >
-        <img src="/assets/riseher.png" alt="" aria-hidden="true" style={{ display: 'none' }} />
+        <img src="/assets/placeholder-hero.svg" alt="" aria-hidden="true" style={{ display: 'none' }} />
         <div className="hero-content">
           <h1 id="hero-heading" className="hero-title">RIseHer — Women in Public Life & Public Service</h1>
           <p className="hero-sub">A central hub to empower, connect, and protect women in public service — mentorship, visibility, safety, and resources.</p>

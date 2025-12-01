@@ -9,7 +9,7 @@ export default function Mentorship() {
       name: 'Lara Mensah',
       title: 'City Councilor • Civic Tech',
       location: 'Accra',
-      photo: '/assets/one.jpg',
+      photo: '/assets/placeholder.svg',
       bio:
         'Lara Mensah is a civic technology leader with 12+ years in public policy, community tech programs and participatory budgeting. She advises local governments on inclusive digital services.',
       expertise: ['Civic Tech', 'Policy', 'Community Engagement'],
@@ -26,7 +26,7 @@ export default function Mentorship() {
       name: 'Aisha Gomez',
       title: 'Community Organizer • Public Policy',
       location: 'Nairobi',
-      photo: '/assets/one.jpg',
+      photo: '/assets/placeholder.svg',
       bio:
         'Aisha brings grassroots organizing experience to policy campaigns and leadership training, focused on women’s civic participation and safe campaigning.',
       expertise: ['Organizing', 'Leadership', 'Safe Campaigning'],
@@ -39,7 +39,7 @@ export default function Mentorship() {
       name: 'Nora Okoye',
       title: 'Campaign Strategist',
       location: 'Lagos',
-      photo: '/assets/one.jpg',
+      photo: '/assets/placeholder.svg',
       bio:
         'Nora is a senior campaign strategist who designs evidence-based outreach and digital safety protocols for candidates and civic initiatives.',
       expertise: ['Campaign Strategy', 'Digital Safety'],

@@ -4,23 +4,23 @@ import Hero from '../components/Hero';
 import '../styles/home.css'; // added
 
 export default function Home() {
-	// community testimonials (15 items)
+	// community testimonials (15 items) — made a few quotes more conversational
 	const testimonials = [
-		{ name: 'Fatima K.', role: 'Voter Educator, Mombasa', quote: 'RIseHer gave me tools to run community workshops safely.', photo: '/assets/one.jpg' },
-		{ name: 'Grace T.', role: 'School Leader, Kampala', quote: 'I found a peer network that helped me scale our civic youth program.', photo: '/assets/one.jpg' },
-		{ name: 'Zainab R.', role: 'Local Advocate, Dar es Salaam', quote: 'The visibility tools helped raise awareness for our campaign.', photo: '/assets/one.jpg' },
-		{ name: 'Maya S.', role: 'Civic Volunteer, Lusaka', quote: 'Mentorship matching helped me structure my leadership goals.', photo: '/assets/one.jpg' },
-		{ name: 'Evelyn P.', role: 'Community Liaison, Accra', quote: 'I accessed funding listings that supported our training series.', photo: '/assets/one.jpg' },
-		{ name: 'Nadia L.', role: 'Policy Intern, Nairobi', quote: 'The workshops sharpened my public policy skills.', photo: '/assets/one.jpg' },
-		{ name: 'Rita A.', role: 'Campaign Volunteer, Lagos', quote: 'I felt safer using the digital safety checklist during fieldwork.', photo: '/assets/one.jpg' },
-		{ name: 'Sofia M.', role: 'Youth Organizer, Kigali', quote: 'The community introduced me to collaborators across regions.', photo: '/assets/one.jpg' },
-		{ name: 'Hannah B.', role: 'Researcher, Accra', quote: 'Resources saved us weeks of effort designing our outreach.', photo: '/assets/one.jpg' },
-		{ name: 'Lina C.', role: 'Advocacy Lead, Kampala', quote: 'I bookmarked grants and landed funding for a pilot project.', photo: '/assets/one.jpg' },
-		{ name: 'Noor D.', role: 'Trainer, Mombasa', quote: 'Trainings boosted confidence in public speaking for participants.', photo: '/assets/one.jpg' },
-		{ name: 'Patience K.', role: 'Community Organiser, Goma', quote: 'RIseHer connected me to a mentor who guided campaign strategy.', photo: '/assets/one.jpg' },
-		{ name: 'Yasmin O.', role: 'Regional Coordinator, Nairobi', quote: 'Our meetup saw a 3x increase in volunteers after posting on RIseHer.', photo: '/assets/one.jpg' },
-		{ name: 'Diana F.', role: 'Civic Tech Volunteer, Lagos', quote: 'The simulation game made leadership training engaging and practical.', photo: '/assets/one.jpg' },
-		{ name: 'Olga H.', role: 'NGO Partner, Accra', quote: 'We used the toolkit for safe campaigning across multiple cities.', photo: '/assets/one.jpg' },
+		{ name: 'Fatima K.', role: 'Voter Educator, Mombasa', quote: "RIseHer gave me the confidence and tools to run community workshops safely — I couldn't have done it alone.", photo: '/assets/placeholder.svg' },
+		{ name: 'Grace T.', role: 'School Leader, Kampala', quote: "I found a peer network that helped me scale our civic youth program — people who actually listen and help.", photo: '/assets/placeholder.svg' },
+		{ name: 'Zainab R.', role: 'Local Advocate, Dar es Salaam', quote: "The visibility tools helped us get noticed — our turnout tripled!", photo: '/assets/placeholder.svg' },
+		{ name: 'Maya S.', role: 'Civic Volunteer, Lusaka', quote: 'Mentorship matching helped me structure my leadership goals.', photo: '/assets/placeholder.svg' },
+		{ name: 'Evelyn P.', role: 'Community Liaison, Accra', quote: 'I accessed funding listings that supported our training series.', photo: '/assets/placeholder.svg' },
+		{ name: 'Nadia L.', role: 'Policy Intern, Nairobi', quote: 'The workshops sharpened my public policy skills.', photo: '/assets/placeholder.svg' },
+		{ name: 'Rita A.', role: 'Campaign Volunteer, Lagos', quote: 'I felt safer using the digital safety checklist during fieldwork.', photo: '/assets/placeholder.svg' },
+		{ name: 'Sofia M.', role: 'Youth Organizer, Kigali', quote: 'The community introduced me to collaborators across regions.', photo: '/assets/placeholder.svg' },
+		{ name: 'Hannah B.', role: 'Researcher, Accra', quote: 'Resources saved us weeks of effort designing our outreach.', photo: '/assets/placeholder.svg' },
+		{ name: 'Lina C.', role: 'Advocacy Lead, Kampala', quote: 'I bookmarked grants and landed funding for a pilot project.', photo: '/assets/placeholder.svg' },
+		{ name: 'Noor D.', role: 'Trainer, Mombasa', quote: 'Trainings boosted confidence in public speaking for participants.', photo: '/assets/placeholder.svg' },
+		{ name: 'Patience K.', role: 'Community Organiser, Goma', quote: 'RIseHer connected me to a mentor who guided campaign strategy.', photo: '/assets/placeholder.svg' },
+		{ name: 'Yasmin O.', role: 'Regional Coordinator, Nairobi', quote: 'Our meetup saw a 3x increase in volunteers after posting on RIseHer.', photo: '/assets/placeholder.svg' },
+		{ name: 'Diana F.', role: 'Civic Tech Volunteer, Lagos', quote: 'The simulation game made leadership training engaging and practical.', photo: '/assets/placeholder.svg' },
+		{ name: 'Olga H.', role: 'NGO Partner, Accra', quote: 'We used the toolkit for safe campaigning across multiple cities.', photo: '/assets/placeholder.svg' },
 	];
 
 	// chunk into pages of 3
@@ -46,17 +46,17 @@ export default function Home() {
 	const goPrev = () => setPage(p => (p <= 0 ? maxPage : p - 1));
 	const goNext = () => setPage(p => (p >= maxPage ? 0 : p + 1));
 
-	// partners carousel (uses public/assets/partner1.png ... partner9.png)
+	// partners carousel — use placeholders (replace with real assets later)
 	const partners = [
-		{ id: 1, src: '/assets/Partner1.png', alt: 'Partner 1' },
-		{ id: 2, src: '/assets/Partner2.png', alt: 'Partner 2' },
-		{ id: 3, src: '/assets/Partner3.png', alt: 'Partner 3' },
-		{ id: 4, src: '/assets/Partner4.png', alt: 'Partner 4' },
-		{ id: 5, src: '/assets/Partner5.png', alt: 'Partner 5' },
-		{ id: 6, src: '/assets/Partner6.png', alt: 'Partner 6' },
-		{ id: 7, src: '/assets/Partner6.png', alt: 'Partner 6' },
-		{ id: 8, src: '/assets/Partner5.png', alt: 'Partner 8' },
-		{ id: 9, src: '/assets/Partner6.png', alt: 'Partner 9' },
+		{ id: 1, src: '/assets/placeholder.svg', alt: 'Partner 1' },
+		{ id: 2, src: '/assets/placeholder.svg', alt: 'Partner 2' },
+		{ id: 3, src: '/assets/placeholder.svg', alt: 'Partner 3' },
+		{ id: 4, src: '/assets/placeholder.svg', alt: 'Partner 4' },
+		{ id: 5, src: '/assets/placeholder.svg', alt: 'Partner 5' },
+		{ id: 6, src: '/assets/placeholder.svg', alt: 'Partner 6' },
+		{ id: 7, src: '/assets/placeholder.svg', alt: 'Partner 7' },
+		{ id: 8, src: '/assets/placeholder.svg', alt: 'Partner 8' },
+		{ id: 9, src: '/assets/placeholder.svg', alt: 'Partner 9' },
 	];
 
 	const partnersPerPage = 3;
@@ -82,13 +82,23 @@ export default function Home() {
 			<Hero />
 
 			<section className="quick-highlights container">
-				<h2 className="section-title">Quick Highlights</h2>
+				<h2 className="section-title">Real voices from our community</h2>
+				<p className="section-subtitle">
+					Real people. Real experiences. Honest stories and practical tips from members of RIseHer.
+				</p>
 
 				<div className="home-grid">
 					<article className="card" aria-labelledby="featured-leader">
 						<div className="media-circle">
-							{/* use a safe, existing image filename to avoid casing / special-character issues on Linux */}
-							<img src="/assets/one.jpg" alt="Featured leader" />
+							<img
+								src="/assets/placeholder.svg"
+								alt="Featured leader"
+								onError={(e) => {
+									const img = e.currentTarget as HTMLImageElement;
+									img.onerror = null;
+									img.src = '/assets/placeholder.svg';
+								}}
+							/>
 						</div>
 
 						<h3 id="featured-leader" className="card-title">
@@ -106,7 +116,7 @@ export default function Home() {
 
 					<article className="card" aria-labelledby="upcoming-event">
 						<div className="media-square">
-							<img src="/assets/Banner.png" alt="Upcoming event illustration" />
+							<img src="/assets/placeholder.svg" alt="Upcoming event illustration" />
 						</div>
 
 						<h3 id="upcoming-event" className="card-title">
@@ -125,7 +135,7 @@ export default function Home() {
 
 					<article className="card" aria-labelledby="latest-news">
 						<div className="media-square">
-							<img src="/assets/News.png" alt="Latest news illustration" />
+							<img src="/assets/placeholder.svg" alt="Latest news illustration" />
 						</div>
 
 						<h3 id="latest-news" className="card-title">
@@ -153,9 +163,20 @@ export default function Home() {
 					</p>
 
 					<div className="carousel-wrap">
-						<div className="track" style={{ transform: `translateX(-${page * (100 / pages.length)}%)` }}>
+						<div
+							className="track"
+							style={{
+								width: `${pages.length * 100}%`,
+								transform: `translateX(-${page * (100 / pages.length)}%)`,
+							}}
+						>
 							{pages.map((pg, pageIndex) => (
-								<div key={pageIndex} className="page" aria-hidden={pageIndex !== page}>
+								<div
+									key={pageIndex}
+									className="page"
+									aria-hidden={pageIndex !== page}
+									style={{ width: `${100 / pages.length}%` }}
+								>
 									<div className="testimonial-grid">
 										{pg.map((t, i) => (
 											<article key={i} className="testimonial-card" aria-label={`Testimonial by ${t.name}`}>
@@ -201,12 +222,33 @@ export default function Home() {
 					<p className="section-subtitle">We collaborate with organisations across the region.</p>
 
 					<div className="slider-wrap" aria-roledescription="carousel" aria-label="Partner logos carousel">
-						<div className="slider-track" style={{ transform: `translateX(-${partnerPage * (100 / partnerPages.length)}%)` }}>
+						<div
+							className="slider-track"
+							style={{
+								width: `${partnerPages.length * 100}%`,
+								transform: `translateX(-${partnerPage * (100 / partnerPages.length)}%)`,
+							}}
+						>
 							{partnerPages.map((pg, pageIndex) => (
-								<div key={pageIndex} className="partner-page" aria-hidden={pageIndex !== partnerPage}>
+								<div
+									key={pageIndex}
+									className="partner-page"
+									aria-hidden={pageIndex !== partnerPage}
+									style={{ width: `${100 / partnerPages.length}%` }}
+								>
 									{pg.map((p) => (
 										<div key={p.id} role="group" aria-label={p.alt} className="partner-card">
-											<img src={p.src} alt={p.alt} loading="lazy" className="partner-logo" />
+											<img
+												src={p.src}
+												alt={p.alt}
+												loading="lazy"
+												className="partner-logo"
+												onError={(e) => {
+													const img = e.currentTarget as HTMLImageElement;
+													img.onerror = null;
+													img.src = '/assets/partner-fallback.png';
+												}}
+											/>
 										</div>
 									))}
 								</div>

@@ -12,7 +12,17 @@ export default function Header() {
         </a>
 
         <Link to="/" className="brand" aria-label="RIseHer home">
-          <img src="/assets/logo1.png" alt="RIseHer logo" className="logo" />
+          {/* use safe placeholder logo bundled in public/assets */}
+          <img
+            src="/assets/placeholder-logo.svg"
+            alt="RIseHer logo"
+            className="logo"
+            onError={(e) => {
+              const img = e.currentTarget as HTMLImageElement;
+              img.onerror = null;
+              img.src = '/assets/placeholder-logo.svg';
+            }}
+          />
           <span className="sr-only">RIseHer</span>
         </Link>
 

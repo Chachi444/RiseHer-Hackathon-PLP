@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/about.css'; // added
 
 export default function About() {
   // Layout & type (use theme variables and Roboto)
@@ -63,85 +64,85 @@ export default function About() {
   const offerDescStyle: React.CSSProperties = { margin: '4px 0 0 0', color: '#555', fontSize: '.95rem', lineHeight: 1.5 };
 
   return (
-    <main style={container} role="main" aria-labelledby="about-heading">
+    <main className="about-container" role="main" aria-labelledby="about-heading">
       {/* HERO */}
-      <header style={heroGrid}>
-        <div style={heroText}>
-          <div style={eyebrow}>About RIseHer</div>
-          <h1 id="about-heading" style={title}>Empowering women in public life & public service</h1>
+      <header className="about-hero-grid">
+        <div className="about-hero-text">
+          <div className="about-eyebrow">About RIseHer</div>
+          <h1 id="about-heading" className="about-title">Empowering women in public life & public service</h1>
 
-          <p style={lead}>
+          <p className="about-lead">
             <strong>RIseHer</strong> is a global platform dedicated to empowering women in public life and public service. Built on the pillars of <strong>visibility, mentorship, safety, and growth</strong>, RIseHer provides the tools, networks, and resources women need to lead confidently and make lasting impact in politics, governance, business, and civil society.
           </p>
 
           {/* Emphasized paragraph you requested */}
-          <p style={{ ...p, marginTop: 18, background: 'linear-gradient(180deg, #fbfbfe, #fff)', padding: 12, borderRadius: 8, border: '1px solid rgba(11,12,26,0.03)' }}>
+          <p className="about-emphasized">
             We believe that women’s voices are essential to shaping inclusive policies, driving innovation, and building stronger communities. Yet, many face barriers such as underrepresentation, harassment, and lack of mentorship. RIseHer was created to break these barriers and create a safe, supportive, and inspiring digital space.
           </p>
         </div>
     
-        <div style={imgWrap} aria-hidden={false}>
-          <img src="/assets/Riseher.png" alt="RIseHer hero artwork" style={heroImg} />
+        <div className="about-img-wrap" aria-hidden={false}>
+          <img src="/assets/placeholder-hero.svg" alt="RIseHer hero artwork" className="about-hero-img" />
         </div>
       </header>
 
-      <section aria-labelledby="about-core" style={{ marginTop: 18 }}>
-        <div style={coreGridStyle}>
-          <div style={missionCard} aria-labelledby="mission-heading">
-            <h3 id="mission-heading" style={{ margin: 0, fontSize: '1.05rem', color: '#2c1a4a' }}>✨ Our Mission</h3>
-            <p style={{ marginTop: 10, color: '#444', lineHeight: 1.7 }}>
+      <section aria-labelledby="about-core" className="about-core" >
+        <div className="about-core-grid">
+          <div className="about-mission-card" aria-labelledby="mission-heading">
+            <h3 id="mission-heading" className="about-h3">✨ Our Mission</h3>
+            <p className="about-paragraph">
               To <strong>empower, connect, and protect women in public service</strong>, ensuring they have equal opportunities to lead, thrive, and inspire future generations.
             </p>
 
-            <hr style={{ border: 'none', borderTop: '1px solid #f0f0f4', margin: '18px 0' }} />
+            <hr className="about-divider" />
 
-            <h3 style={{ margin: 0, fontSize: '1.05rem', color: '#2c1a4a' }}>🌍 Our Vision</h3>
-            <p style={{ marginTop: 10, color: '#444', lineHeight: 1.7 }}>
+            <h3 className="about-h3">🌍 Our Vision</h3>
+            <p className="about-paragraph">
               A world where women’s leadership is visible, valued, and protected, where every woman in public service has the tools and community to rise, thrive, and lead change.
             </p>
           </div>
 
-          <aside style={offersCard} aria-labelledby="offers-heading">
-            <h3 id="offers-heading" style={{ margin: 0, fontSize: '1.05rem', color: '#2c1a4a' }}>💡 What We Offer</h3>
+          <aside className="about-offers-card" aria-labelledby="offers-heading">
+            <h3 id="offers-heading" className="about-h3">💡 What We Offer</h3>
 
-            <div style={{ marginTop: 12, display: 'grid', gap: 12 }}>
-              <div style={offerItem}>
-                <div style={badge} aria-hidden>👥</div>
+            <div className="about-offers-grid">
+              <div className="about-offer-item">
+                <div className="about-badge" aria-hidden>👥</div>
                 <div>
-                  <p style={offerTitleStyle}>Mentorship Network</p>
-                  <p style={offerDescStyle}>Connecting aspiring leaders with experienced mentors and sponsors.</p>
+                  <p className="about-offer-title">Mentorship Network</p>
+                  <p className="about-offer-desc">Connecting aspiring leaders with experienced mentors and sponsors.</p>
                 </div>
               </div>
 
-              <div style={offerItem}>
-                <div style={badge} aria-hidden>🗺️</div>
+              <div className="about-offer-item">
+                <div className="about-badge" aria-hidden>🗺️</div>
                 <div>
-                  <p style={offerTitleStyle}>Visibility Hub</p>
-                  <p style={offerDescStyle}>Showcasing women leaders through interactive maps, profiles, and storytelling.</p>
+                  <p className="about-offer-title">Visibility Hub</p>
+                  <p className="about-offer-desc">Showcasing women leaders through interactive maps, profiles, and storytelling.</p>
                 </div>
               </div>
 
-              <div style={offerItem}>
-                <div style={badge} aria-hidden>🛡️</div>
+              <div className="about-offer-item">
+                <div className="about-badge" aria-hidden>🛡️</div>
                 <div>
-                  <p style={offerTitleStyle}>Safety Toolkit</p>
-                  <p style={offerDescStyle}>Providing resources and reporting tools to combat harassment and discrimination.</p>
+                  <p className="about-offer-title">Safety Toolkit</p>
+                  <p className="about-offer-desc">Providing resources and reporting tools to combat harassment and discrimination.</p>
                 </div>
               </div>
 
-              <div style={offerItem}>
-                <div style={badge} aria-hidden>📈</div>
+              <div className="about-offer-item">
+                <div className="about-badge" aria-hidden>📈</div>
                 <div>
-                  <p style={offerTitleStyle}>Career Development</p>
-                  <p style={offerDescStyle}>Offering training, resources, job boards, and leadership simulations.</p>
+                  <p className="about-offer-title">Career Development</p>
+                  <p className="about-offer-desc">Offering training, resources, job boards, and leadership simulations.</p>
                 </div>
               </div>
 
-              <div style={offerItem}>
-                <div style={badge} aria-hidden>🤝</div>
+              <div className="about-offer-item">
+                <div className="about-badge" aria-hidden>🤝</div>
                 <div>
-                  <p style={offerTitleStyle}>Community Engagement</p>
-                  <p style={offerDescStyle}>Forums, events, and regional meetups to build solidarity and support.</p>
+                  <p className="about-offer-title">Community Engagement</p>
+                  <p className="about-offer-desc">Forums, events, and regional meetups to build solidarity and support.</p>
                 </div>
               </div>
             </div>
@@ -150,8 +151,8 @@ export default function About() {
       </section>
 
       {/* Footer links (no call-to-action buttons requested) */}
-      <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end', marginTop: 6 }}>
-        <Link to="/" style={{ textDecoration: 'none', padding: '.6rem .9rem', borderRadius: 8, border: '1px solid rgba(0,0,0,0.06)', background: '#fff', color: '#333' }}>Home</Link>
+      <div className="about-footer-links">
+        <Link to="/" className="about-home-link">Home</Link>
       </div>
     </main>
   );
