@@ -86,7 +86,17 @@ export default function Visibility() {
           <div className="vh-card-row">
             <div className="vh-map-panel">
               <div className="vh-map-canvas" aria-hidden="false">
-                <img src="/assets/visi.png" alt="Map artwork" className="vh-map-image" />
+                <img
+                  src="/assets/visi.png"
+                  alt="Map artwork"
+                  className="vh-map-image"
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement;
+                    if (img.dataset.fallbackApplied === '1') return;
+                    img.dataset.fallbackApplied = '1';
+                    img.src = '/assets/one.jpg';
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -125,9 +135,19 @@ export default function Visibility() {
                   className="vh-dir-item"
                 >
                   {l.photo ? (
-                    <img src={l.photo} alt={`${l.name} profile photo`} className="vh-dir-photo" />
+                    <img
+                      src={l.photo || '/assets/one.jpg'}
+                      alt={`${l.name} profile photo`}
+                      className="vh-dir-photo"
+                      onError={(e) => {
+                        const img = e.currentTarget as HTMLImageElement;
+                        if (img.dataset.fallbackApplied === '1') return;
+                        img.dataset.fallbackApplied = '1';
+                        img.src = '/assets/placeholder.svg';
+                      }}
+                    />
                   ) : (
-                    <div aria-hidden className="vh-dir-placeholder" />
+                    <img src="/assets/one.jpg" alt={`${l.name} profile placeholder`} className="vh-dir-photo" />
                   )}
 
                   <div className="vh-dir-meta">

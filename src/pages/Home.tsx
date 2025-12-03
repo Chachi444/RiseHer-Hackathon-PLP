@@ -11,97 +11,97 @@ export default function Home() {
       role: "Voter Educator, Mombasa",
       quote:
         "RIseHer gave me the confidence and tools to run community workshops safely — I couldn't have done it alone.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Grace T.",
       role: "School Leader, Kampala",
       quote:
         "I found a peer network that helped me scale our civic youth program — people who actually listen and help.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Zainab R.",
       role: "Local Advocate, Dar es Salaam",
       quote:
         "The visibility tools helped us get noticed — our turnout tripled!",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Maya S.",
       role: "Civic Volunteer, Lusaka",
       quote: "Mentorship matching helped me structure my leadership goals.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Evelyn P.",
       role: "Community Liaison, Accra",
       quote: "I accessed funding listings that supported our training series.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Nadia L.",
       role: "Policy Intern, Nairobi",
       quote: "The workshops sharpened my public policy skills.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Rita A.",
       role: "Campaign Volunteer, Lagos",
       quote:
         "I felt safer using the digital safety checklist during fieldwork.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Sofia M.",
       role: "Youth Organizer, Kigali",
       quote: "The community introduced me to collaborators across regions.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Hannah B.",
       role: "Researcher, Accra",
       quote: "Resources saved us weeks of effort designing our outreach.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Lina C.",
       role: "Advocacy Lead, Kampala",
       quote: "I bookmarked grants and landed funding for a pilot project.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Noor D.",
       role: "Trainer, Mombasa",
       quote:
         "Trainings boosted confidence in public speaking for participants.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Patience K.",
       role: "Community Organiser, Goma",
       quote: "RIseHer connected me to a mentor who guided campaign strategy.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Yasmin O.",
       role: "Regional Coordinator, Nairobi",
       quote:
         "Our meetup saw a 3x increase in volunteers after posting on RIseHer.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Diana F.",
       role: "Civic Tech Volunteer, Lagos",
       quote:
         "The simulation game made leadership training engaging and practical.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
     {
       name: "Olga H.",
       role: "NGO Partner, Accra",
       quote: "We used the toolkit for safe campaigning across multiple cities.",
-      photo: "/assets/placeholder.svg",
+      photo: "src/assets/one.jpg",
     },
   ];
 
@@ -130,15 +130,15 @@ export default function Home() {
 
   // partners carousel — use placeholders (replace with real assets later)
   const partners = [
-    { id: 1, src: "/assets/placeholder.svg", alt: "Partner 1" },
-    { id: 2, src: "/assets/placeholder.svg", alt: "Partner 2" },
-    { id: 3, src: "/assets/placeholder.svg", alt: "Partner 3" },
-    { id: 4, src: "/assets/placeholder.svg", alt: "Partner 4" },
-    { id: 5, src: "/assets/placeholder.svg", alt: "Partner 5" },
-    { id: 6, src: "/assets/placeholder.svg", alt: "Partner 6" },
-    { id: 7, src: "/assets/placeholder.svg", alt: "Partner 7" },
-    { id: 8, src: "/assets/placeholder.svg", alt: "Partner 8" },
-    { id: 9, src: "/assets/placeholder.svg", alt: "Partner 9" },
+    { id: 1, src: "src/assets/one.jpg", alt: "Partner 1" },
+    { id: 2, src: "src/assets/one.jpg", alt: "Partner 2" },
+    { id: 3, src: "src/assets/one.jpg", alt: "Partner 3" },
+    { id: 4, src: "src/assets/one.jpg", alt: "Partner 4" },
+    { id: 5, src: "src/assets/one.jpg", alt: "Partner 5" },
+    { id: 6, src: "src/assets/one.jpg", alt: "Partner 6" },
+    { id: 7, src: "src/assets/one.jpg", alt: "Partner 7" },
+    { id: 8, src: "src/assets/one.jpg", alt: "Partner 8" },
+    { id: 9, src: "src/assets/one.jpg", alt: "Partner 9" },
   ];
 
   const partnersPerPage = 3;
@@ -191,12 +191,12 @@ export default function Home() {
           <article className="card" aria-labelledby="featured-leader">
             <div className="media-circle">
               <img
-                src="/assets/placeholder.svg"
+                src="src/assets/one.jpg"
                 alt="Featured leader"
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
                   img.onerror = null;
-                  img.src = "/assets/placeholder.svg";
+                  img.src = "src/assets/one.jpg";
                 }}
               />
             </div>
@@ -220,7 +220,7 @@ export default function Home() {
           <article className="card" aria-labelledby="upcoming-event">
             <div className="media-square">
               <img
-                src="/assets/placeholder.svg"
+                src="src/assets/one.jpg"
                 alt="Upcoming event illustration"
               />
             </div>
@@ -243,7 +243,7 @@ export default function Home() {
           <article className="card" aria-labelledby="latest-news">
             <div className="media-square">
               <img
-                src="/assets/placeholder.svg"
+                src="src/assets/one.jpg"
                 alt="Latest news illustration"
               />
             </div>

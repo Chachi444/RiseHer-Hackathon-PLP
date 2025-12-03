@@ -24,7 +24,7 @@ const mentors: Mentor[] = [
     name: 'Lara Mensah',
     title: 'City Councilor • Civic Tech',
     location: 'Accra',
-    photo: '/assets/placeholder.svg',
+    photo: 'src/assets/one.jpg',
     bio:
       'Lara Mensah is a civic-technology and public-policy leader with 12+ years of experience designing inclusive civic services, participatory budgeting programs, and civic data initiatives. She advises local governments and trains community leaders.',
     expertise: ['Civic Tech', 'Participatory Budgeting', 'Public Policy', 'Community Engagement'],
@@ -49,7 +49,7 @@ const mentors: Mentor[] = [
     name: 'Aisha Gomez',
     title: 'Community Organizer • Public Policy',
     location: 'Nairobi',
-    photo: '/assets/placeholder.svg',
+    photo: 'src/assets/one.jpg',
     bio:
       'Aisha leads grassroots mobilization and training programs focused on women’s civic participation, safe campaigning, and leadership development.',
     expertise: ['Organizing', 'Leadership Training', 'Safe Campaigning'],
@@ -65,7 +65,7 @@ const mentors: Mentor[] = [
     name: 'Nora Okoye',
     title: 'Campaign Strategist',
     location: 'Lagos',
-    photo: '/assets/placeholder.svg',
+    photo: 'src/assets/one.jpg',
     bio:
       'Nora is a campaign strategist with deep experience in outreach design, evidence-driven messaging and digital safety protocols for civic initiatives.',
     expertise: ['Campaign Strategy', 'Digital Safety', 'Stakeholder Engagement'],
