@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/hero.css'; // added
-// import the asset so Vite resolves it for dev and production
-import heroImg from '../assets/riseher.png';
+// use public assets (place riseher.png in public/assets/) — do not import large images into JS
 
 export default function Hero() {
 	const headerOffset = 0;
@@ -19,8 +18,8 @@ export default function Hero() {
 			el.href = href;
 		};
 
-		// preferred path you supplied — adjust if your file lives elsewhere
-		const logoPath = '/src/assets/logo3.png';
+		// use public path so it is served (not bundled)
+		const logoPath = '/assets/logo1.png';
 
 		try {
 			setLink('icon', logoPath);
@@ -39,9 +38,9 @@ export default function Hero() {
 				aria-label="RIseHer banner image featuring diverse women leaders"
 				style={{ height: heroHeight }} // small dynamic override left in place
 			>
-				{/* show the bundled image; fallback to public placeholder if it fails */}
+				{/* use public asset so the image is served statically and not bundled */}
 				<img
-					src={heroImg}
+					src="/assets/riseher.png"
 					alt=""
 					aria-hidden="true"
 					style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}

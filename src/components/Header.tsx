@@ -14,13 +14,13 @@ export default function Header() {
         <Link to="/" className="brand" aria-label="RIseHer home">
           {/* use safe placeholder logo bundled in public/assets */}
           <img
-            src="src/assets/logo1.png"
+            src="public\assets\logo1.png"
             alt="RIseHer logo"
             className="logo"
             onError={(e) => {
               const img = e.currentTarget as HTMLImageElement;
               img.onerror = null;
-              img.src = 'src/assets/riseher.png';
+              img.src = 'public\assets\logo1.png';
             }}
           />
           <span className="sr-only">RIseHer</span>
