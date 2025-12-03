@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/about.css'; // added
 
@@ -63,6 +63,33 @@ export default function About() {
   const offerTitleStyle: React.CSSProperties = { margin: 0, fontSize: '.98rem', fontWeight: 700, color: '#222' };
   const offerDescStyle: React.CSSProperties = { margin: '4px 0 0 0', color: '#555', fontSize: '.95rem', lineHeight: 1.5 };
 
+  // choose a hero image that actually exists in public/assets
+  const [heroSrc, setHeroSrc] = useState('/assets/riseher.png');
+  useEffect(() => {
+    let mounted = true;
+    const candidates = ['/assets/riseher.webp', '/assets/riseher.png', '/assets/riseher.jpg', '/assets/riseher.jpeg'];
+    (async () => {
+      for (const url of candidates) {
+        try {
+          const res = await fetch(url, { method: 'HEAD' });
+          if (res.ok) {
+            if (!mounted) return;
+            console.debug('[About] hero available:', url);
+            setHeroSrc(url);
+            return;
+          }
+        } catch {
+          // ignore and try next
+        }
+      }
+      if (mounted) {
+        console.warn('[About] no hero image found, using placeholder');
+        setHeroSrc('/assets/placeholder-hero.svg');
+      }
+    })();
+    return () => { mounted = false; };
+  }, []);
+
   return (
     <main className="about-container" role="main" aria-labelledby="about-heading">
       {/* HERO */}
@@ -82,26 +109,22 @@ export default function About() {
         </div>
     
         <div className="about-img-wrap" aria-hidden={false}>
-          <picture>
-            <source srcSet="/assets/riseher.webp" type="image/webp" />
-            <img
-              src="/assets/riseher.png"
-              alt="RIseHer hero artwork"
-              className="about-hero-img"
-              loading="eager"
-              decoding="async"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              onLoad={() => console.debug('[About] riseher image loaded:', '/assets/riseher.png')}
-              onError={(e) => {
-                const img = e.currentTarget as HTMLImageElement;
-                if (img.dataset.fallbackApplied === '1') return;
-                img.dataset.fallbackApplied = '1';
-                console.warn('[About] riseher image failed, falling back to placeholder');
-                img.src = '/assets/placeholder-hero.svg';
-                img.style.objectFit = 'contain';
-              }}
-            />
-          </picture>
+          <img
+            src={heroSrc}
+            alt="RIseHer hero artwork"
+            className="about-hero-img"
+            loading="eager"
+            decoding="async"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            onError={(e) => {
+              const img = e.currentTarget as HTMLImageElement;
+              if (img.dataset.fallbackApplied === '1') return;
+              img.dataset.fallbackApplied = '1';
+              console.warn('[About] hero img onError — switching to placeholder');
+              img.src = '/assets/placeholder-hero.svg';
+              img.style.objectFit = 'contain';
+            }}
+          />
         </div>
       </header>
 
