@@ -130,15 +130,15 @@ export default function Home() {
 
   // partners carousel — use placeholders (replace with real assets later)
   const partners = [
-    { id: 1, src: "src/assets/one.jpg", alt: "Partner 1" },
-    { id: 2, src: "src/assets/one.jpg", alt: "Partner 2" },
-    { id: 3, src: "src/assets/one.jpg", alt: "Partner 3" },
-    { id: 4, src: "src/assets/one.jpg", alt: "Partner 4" },
-    { id: 5, src: "src/assets/one.jpg", alt: "Partner 5" },
-    { id: 6, src: "src/assets/one.jpg", alt: "Partner 6" },
-    { id: 7, src: "src/assets/one.jpg", alt: "Partner 7" },
-    { id: 8, src: "src/assets/one.jpg", alt: "Partner 8" },
-    { id: 9, src: "src/assets/one.jpg", alt: "Partner 9" },
+    { id: 1, src: "src/assets/partner1.png", alt: "Partner 1" },
+    { id: 2, src: "src/assets/partner2.png", alt: "Partner 2" },
+    { id: 3, src: "src/assets/partner3.png", alt: "Partner 3" },
+    { id: 4, src: "src/assets/partner4.png", alt: "Partner 4" },
+    { id: 5, src: "src/assets/partner5.png", alt: "Partner 5" },
+    { id: 6, src: "src/assets/partner6.png", alt: "Partner 6" },
+    { id: 7, src: "src/assets/partner5.png", alt: "Partner 7" },
+    { id: 8, src: "src/assets/partner4.png", alt: "Partner 8" },
+    { id: 9, src: "src/assets/partner1.png", alt: "Partner 9" },
   ];
 
   const partnersPerPage = 3;
@@ -181,22 +181,19 @@ export default function Home() {
       <Hero />
 
       <section className="quick-highlights container">
-        <h2 className="section-title">Real voices from our community</h2>
-        <p className="section-subtitle">
-          Real people. Real experiences. Honest stories and practical tips from
-          members of RIseHer.
-        </p>
+        <h2 className="section-title">Quick Higlights</h2>
+        
 
         <div className="home-grid">
           <article className="card" aria-labelledby="featured-leader">
             <div className="media-circle">
               <img
-                src="src/assets/one.jpg"
+                src="src/assets/mumbi Ndung'u.png"
                 alt="Featured leader"
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
                   img.onerror = null;
-                  img.src = "src/assets/one.jpg";
+                  img.src = "src/assets/mumbi Ndung'u.png";
                 }}
               />
             </div>
@@ -212,7 +209,7 @@ export default function Home() {
               development.
             </p>
 
-            <a className="card-link" href="#">
+            <a className="card-link" href="https://live.worldbank.org/en/experts/m/Mumbi-Ndungu">
               Learn more
             </a>
           </article>
@@ -220,7 +217,7 @@ export default function Home() {
           <article className="card" aria-labelledby="upcoming-event">
             <div className="media-square">
               <img
-                src="src/assets/one.jpg"
+                src="src/assets/banner.png"
                 alt="Upcoming event illustration"
               />
             </div>
@@ -243,7 +240,7 @@ export default function Home() {
           <article className="card" aria-labelledby="latest-news">
             <div className="media-square">
               <img
-                src="src/assets/one.jpg"
+                src="src/assets/news.png"
                 alt="Latest news illustration"
               />
             </div>
