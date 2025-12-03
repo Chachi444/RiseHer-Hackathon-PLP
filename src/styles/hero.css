@@ -1,17 +1,192 @@
-.hero-media { position:relative; overflow:hidden; width:100%; }
-.hero-media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
-.hero-media::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.40) 60%, rgba(0,0,0,0.45) 100%); z-index:1; pointer-events:none; }
-.hero-content { position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; box-sizing:border-box; }
-.hero-title, .hero-sub { color:#fff; margin:0; z-index:2; text-shadow:0 6px 18px rgba(0,0,0,0.45); }
-.hero-title { margin-bottom:.6rem; font-size:clamp(1.6rem, 3.8vw, 2.6rem); max-width:64ch; line-height:1.05; }
-.hero-sub { font-size:clamp(.95rem, 1.6vw, 1.15rem); max-width:56ch; margin:0 auto; opacity:0.95; }
-.hero-ctas { margin-top:1rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; z-index:2; }
-.btn-text-arrow { background:transparent; color:#fff; border:none; padding:.6rem 1rem; border-radius:999px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem; }
-.btn-outline-large { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.95); padding:.7rem 1.25rem; border-radius:12px; text-decoration:none; font-weight:700; }
-.btn-ghost-simple { background:transparent; color:#fff; border:none; padding:.6rem 1rem; border-radius:999px; text-decoration:none; font-weight:700; }
+/* Hero improvements: centered, readable text, nicer CTAs */
 
-@media (max-width: 560px) {
-  .hero-content { padding: 1.25rem; }
-  .hero-content .hero-title { font-size: 1.4rem; max-width: 48ch; }
-  .hero-content .hero-sub { font-size: .95rem; }
+/* Make hero a stacking context and ensure it fills available height */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+
+/* Ensure the media acts as background layer */
+.hero-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  display: block;
+}
+
+/* Dark, subtle overlay to increase contrast between image and text */
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,6,20,0.35) 0%, rgba(5,6,20,0.45) 60%, rgba(5,6,20,0.55) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hero image should sit behind overlay */
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Centered content container with translucent backing for legibility */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  box-sizing: border-box;
+  pointer-events: none; /* allow clicks to pass except on interactive children */
+  transform: translateY(-6vh);
+  transition: transform .25s ease;
+}
+
+/* inner box keeps text readable on very large widths */
+.hero-content > .inner {
+  pointer-events: auto;
+  max-width: 920px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  padding: clamp(1rem, 2.4vw, 2rem);
+  border-radius: 14px;
+  backdrop-filter: blur(6px) saturate(1.02);
+  box-shadow: 0 18px 40px rgba(7,10,25,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Center text and constrain subtitle width for readability */
+.hero-content .hero-title,
+.hero-content .hero-sub {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Larger, bolder headline tuned for hero */
+.hero-title {
+  font-size: clamp(1.6rem, 4.4vw, 2.8rem);
+  line-height: 1.02;
+  margin: 0 0 0.6rem 0;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+/* Increased vertical spacing for hero copy */
+.hero-content .hero-title {
+  margin-bottom: 0.9rem;
+}
+
+/* subtitle with constrained width for readability */
+.hero-sub {
+  font-size: clamp(.95rem, 1.6vw, 1.1rem);
+  margin: 0 auto 3rem auto;
+  max-width: 64ch;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+/* ensure CTA row is visually separated; keep CTAs centered */
+.hero-ctas {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 0;           /* subtitle margin supplies the gap */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Primary CTA (solid) */
+.btn-text-arrow,
+.btn-primary,
+.btn-outline-large,
+.btn-ghost-simple,
+.btn-outline {
+  pointer-events: auto;
+}
+
+/* style primary-ish button */
+.btn-text-arrow,
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-deep-purple, #5A007A), color-mix(in srgb, var(--color-deep-purple,#5A007A) 85%, black 15%));
+  color: #fff;
+  padding: 0.6rem 1.05rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 0;
+  box-shadow: 0 10px 28px rgba(90,0,122,0.18);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+/* secondary (outline) CTA */
+.btn-outline-large {
+  background: transparent;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,0.22);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  transition: background-color .12s ease, transform .12s ease, color .12s ease;
+}
+
+/* ghost CTA: low-contrast but visible */
+.btn-ghost-simple {
+  background: transparent;
+  color: rgba(255,255,255,0.92);
+  padding: 0.46rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: underline;
+}
+
+/* Hover/focus affordances */
+.btn-text-arrow:hover,
+.btn-primary:hover,
+.btn-outline-large:hover,
+.btn-ghost-simple:hover {
+  transform: translateY(-3px);
+  opacity: 0.98;
+}
+.btn-text-arrow:focus,
+.btn-primary:focus,
+.btn-outline-large:focus,
+.btn-ghost-simple:focus {
+  outline: 3px solid rgba(90,0,122,0.16);
+  outline-offset: 3px;
+}
+
+/* small screens: make hero shorter and stack CTAs */
+@media (max-width: 640px) {
+  .hero-media { min-height: 420px; }
+  .hero-content > .inner { padding: 1rem; border-radius: 10px; }
+  .hero-ctas { flex-direction: column; gap: .5rem; }
+  .btn-text-arrow, .btn-primary, .btn-outline-large { width: 100%; justify-content: center; }
+  .hero-content .hero-title { margin-bottom: 0.9rem; }
+  .hero-content .hero-sub { margin-bottom: 1.25rem; }
+  .hero-ctas { gap: 0.6rem; }
+  .hero-content {
+    transform: translateY(-3vh);
+  }
+}
+
+/* Accessibility: ensure text contrast is adequate for smaller fonts */
+.hero-sub, .hero-title { text-wrap: balance; }
