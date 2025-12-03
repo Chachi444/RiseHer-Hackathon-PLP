@@ -82,19 +82,26 @@ export default function About() {
         </div>
     
         <div className="about-img-wrap" aria-hidden={false}>
-          <img
-            src="/assets/riseher.png"
-            alt="RIseHer hero artwork"
-            className="about-hero-img"
-            loading="lazy"
-            decoding="async"
-            onError={(e) => {
-              const img = e.currentTarget as HTMLImageElement;
-              if (img.dataset.fallbackApplied === '1') return;
-              img.dataset.fallbackApplied = '1';
-              img.src = '/assets/placeholder-hero.svg';
-            }}
-          />
+          <picture>
+            <source srcSet="/assets/riseher.webp" type="image/webp" />
+            <img
+              src="/assets/riseher.png"
+              alt="RIseHer hero artwork"
+              className="about-hero-img"
+              loading="eager"
+              decoding="async"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              onLoad={() => console.debug('[About] riseher image loaded:', '/assets/riseher.png')}
+              onError={(e) => {
+                const img = e.currentTarget as HTMLImageElement;
+                if (img.dataset.fallbackApplied === '1') return;
+                img.dataset.fallbackApplied = '1';
+                console.warn('[About] riseher image failed, falling back to placeholder');
+                img.src = '/assets/placeholder-hero.svg';
+                img.style.objectFit = 'contain';
+              }}
+            />
+          </picture>
         </div>
       </header>
 
