@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import '../styles/mentor-profile.css';
+import '../styles/leader-profile.css';
 
 type Mentor = {
   id: number;
