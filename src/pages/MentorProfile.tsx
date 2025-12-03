@@ -94,7 +94,23 @@ export default function MentorProfile() {
   return (
     <main className="mentor-container" role="main" aria-labelledby="mentor-name">
       <div className="mp-header">
-        <img src={mentor.photo} alt={`${mentor.name} photo`} className="mp-photo" />
+        <img
+          src={mentor.photo || '/assets/one.jpg'}
+          alt={`${mentor.name} photo`}
+          className="mp-photo"
+          loading="lazy"
+          width={320}
+          height={320}
+          style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block', borderRadius: 10 }}
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            if (img.dataset.fallbackApplied === '1') return;
+            img.dataset.fallbackApplied = '1';
+            // try a stable public fallback; update path if your placeholder has a different name
+            img.src = '/assets/placeholder-hero.svg';
+            img.style.objectFit = 'contain';
+          }}
+        />
         <div className="mp-meta">
           <h1 id="mentor-name" className="mp-name">
             {mentor.name}
