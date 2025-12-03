@@ -4,7 +4,7 @@ import '../styles/mentor-profile.css';
 
 type Mentor = {
   id: number;
-  name: string;
+  name: string; 
   title: string;
   location: string;
   photo?: string;
