@@ -300,15 +300,19 @@ export default function Home() {
                       >
                         <div className="testimonial-header">
                           <img
-                            src={t.photo}
+                            src={t.photo || '/assets/one.jpg'}
                             alt={`${t.name} photo`}
                             className="testimonial-photo"
+                            loading="lazy"
+                            width={56}
+                            height={56}
                             onError={(e) => {
                               const img = e.currentTarget as HTMLImageElement;
-                              if (img.dataset.fallbackApplied === "1") return;
-                              console.error("[Testimonial image failed]", img.src);
-                              img.dataset.fallbackApplied = "1";
-                              img.src = "/assets/placeholder.svg";
+                              // avoid infinite loop if fallback also fails
+                              if (img.dataset.fallbackApplied === '1') return;
+                              img.dataset.fallbackApplied = '1';
+                              // use the stable public placeholder that exists in public/assets
+                              img.src = '/assets/one.jpg';
                             }}
                           />
                           <div className="testimonial-info">

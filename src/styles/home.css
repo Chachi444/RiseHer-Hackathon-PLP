@@ -90,7 +90,8 @@
   border-radius: 50%;
   background: #efeef6;
   flex: 0 0 56px;
-  object-fit: cover;
+  object-fit: contain; /* show full image (placeholder or logo) */
+  display: block;
 }
 
 /* If image fails to load, ensure layout still looks OK */
