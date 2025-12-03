@@ -82,7 +82,19 @@ export default function About() {
         </div>
     
         <div className="about-img-wrap" aria-hidden={false}>
-          <img src="public/assets/riseher.png" alt="RIseHer hero artwork" className="about-hero-img" />
+          <img
+            src="/assets/riseher.png"
+            alt="RIseHer hero artwork"
+            className="about-hero-img"
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              const img = e.currentTarget as HTMLImageElement;
+              if (img.dataset.fallbackApplied === '1') return;
+              img.dataset.fallbackApplied = '1';
+              img.src = '/assets/placeholder-hero.svg';
+            }}
+          />
         </div>
       </header>
 
