@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/hero.css'; // added
 // import the asset so Vite resolves it for dev and production
 import heroImg from '../assets/riseher.png';
@@ -6,6 +6,30 @@ import heroImg from '../assets/riseher.png';
 export default function Hero() {
 	const headerOffset = 0;
 	const heroHeight = headerOffset ? `calc(100vh - ${headerOffset}px)` : '100vh';
+
+	// ensure the site favicon (site icon) uses your logo file
+	useEffect(() => {
+		const setLink = (rel: string, href: string) => {
+			let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+			if (!el) {
+				el = document.createElement('link');
+				el.rel = rel;
+				document.head.appendChild(el);
+			}
+			el.href = href;
+		};
+
+		// preferred path you supplied — adjust if your file lives elsewhere
+		const logoPath = '/src/assets/logo3.png';
+
+		try {
+			setLink('icon', logoPath);
+			setLink('apple-touch-icon', logoPath);
+		} catch (err) {
+			// silent fail — favicon is non-critical
+			// console.warn('Failed to set favicon', err);
+		}
+	}, []);
 
 	return (
 		<section className="hero" aria-labelledby="hero-heading">

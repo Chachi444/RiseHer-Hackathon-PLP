@@ -14,7 +14,7 @@ export default function Header() {
         <Link to="/" className="brand" aria-label="RIseHer home">
           {/* use safe placeholder logo bundled in public/assets */}
           <img
-            src="src/assets/logo3.png"
+            src="src/assets/logo1.png"
             alt="RIseHer logo"
             className="logo"
             onError={(e) => {
