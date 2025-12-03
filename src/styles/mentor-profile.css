@@ -25,19 +25,24 @@
   margin-bottom: 18px;
 }
 
-/* place elements into areas (keep markup unchanged) */
-.mp-header > .mp-photo { grid-area: photo; }
+/* target the actual elements rendered in JSX */
+.mp-header > img.mp-photo { grid-area: photo; }
 .mp-header > .mp-meta { grid-area: meta; }
 .mp-header > .mp-quick { grid-area: quick; }
 
-/* Photo: fixed aspect and cover to avoid stretching */
+/* Photo: responsive, preserve aspect, avoid overflow */
 .mp-photo {
+  display: block;
   width: 100%;
+  max-width: 100%;
   height: 160px;
+  min-height: 120px;
   border-radius: 10px;
   object-fit: cover;
+  object-position: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   border: 1px solid var(--mp-border);
+  background: linear-gradient(180deg,#fbf8ff,#fff);
 }
 
 /* Meta: tighten spacing & reduce headline size slightly for balance */
@@ -45,6 +50,7 @@
   font-size: 1.35rem;
   line-height: 1.05;
   margin: 0;
+  color: var(--mp-deep);
 }
 .mp-sub { font-size: .95rem; color: #555; }
 
@@ -84,15 +90,21 @@
 /* Quick info card */
 .mp-quick { padding-top: 4px; }
 .mp-quick-card {
+  width: 100%;
+  box-sizing: border-box;
   padding: 12px;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(11,12,26,0.05);
+  box-shadow: 0 8px 20px rgba(11,12,26,0.05);
   border: 1px solid var(--mp-border);
 }
 .mp-quick-card strong { display:block; margin-bottom:8px; font-size:1rem; }
 .mp-quick-info-details { color:#555; font-size:.95rem; line-height:1.5; margin-top:6px; }
 .mp-quick-actions { margin-top:12px; }
 .mp-quick-actions .btn-primary { width:100%; display:inline-block; text-align:center; }
+
+/* Ensure meta and quick column never collapse */
+.mp-meta { display:flex; flex-direction:column; gap:8px; min-width:0; }
+.mp-quick { align-self:start; }
 
 /* Sections */
 .mp-section { margin-top: 18px; display:grid; gap: 18px; grid-template-columns: 1fr; }
@@ -106,6 +118,9 @@
 /* Footer/back link */
 .mp-footer { margin-top: 18px; }
 .mp-back { color: var(--mp-accent); text-decoration: none; font-weight:700; }
+
+/* Reduce heavy shadows site-wide for coherence */
+:root { --mp-shadow: 0 8px 20px rgba(11,12,26,0.05); }
 
 /* Responsive: stack columns on smaller screens */
 @media (max-width: 980px) {
