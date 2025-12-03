@@ -87,14 +87,17 @@ export default function Visibility() {
             <div className="vh-map-panel">
               <div className="vh-map-canvas" aria-hidden="false">
                 <img
-                  src="public\assets\visi.png"
+                  src="/assets/visi.png"
                   alt="Map artwork"
                   className="vh-map-image"
+                  loading="eager"
+                  style={{ display: 'block', width: '100%', height: 'auto' }}
                   onError={(e) => {
                     const img = e.currentTarget as HTMLImageElement;
                     if (img.dataset.fallbackApplied === '1') return;
                     img.dataset.fallbackApplied = '1';
-                    img.src = 'src/assets/one.jpg';
+                    // fallback to a local generic image that should exist in public/assets
+                    img.src = '/assets/one.jpg';
                   }}
                 />
               </div>
@@ -134,21 +137,21 @@ export default function Visibility() {
                   onKeyDown={onKeyDown}
                   className="vh-dir-item"
                 >
-                  {l.photo ? (
-                    <img
-                      src={l.photo || 'src/assets/one.jpg'}
-                      alt={`${l.name} profile photo`}
-                      className="vh-dir-photo"
-                      onError={(e) => {
-                        const img = e.currentTarget as HTMLImageElement;
-                        if (img.dataset.fallbackApplied === '1') return;
-                        img.dataset.fallbackApplied = '1';
-                        img.src = 'src/assets/one.jpg';
-                      }}
-                    />
-                  ) : (
-                    <img src="src/assets/one.jpg" alt={`${l.name} profile placeholder`} className="vh-dir-photo" />
-                  )}
+                  {/* show a real image where possible; fall back to /assets/one.jpg then /assets/placeholder.svg */}
+                  <img
+                    src={l.photo || '/assets/one.jpg'}
+                    alt={`${l.name} profile photo`}
+                    className="vh-dir-photo"
+                    loading="lazy"
+                    width={72}
+                    height={72}
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      if (img.dataset.fallbackApplied === '1') return;
+                      img.dataset.fallbackApplied = '1';
+                      img.src = '/assets/placeholder.svg';
+                    }}
+                  />
 
                   <div className="vh-dir-meta">
                     <h3 id={headingId} className="vh-dir-name">{l.name}</h3>
