@@ -170,6 +170,32 @@
   text-decoration: none;
 }
 
+/* Center the main section headings and their subtitles for Quick Highlights and Testimonials */
+.quick-highlights .section-title,
+.testimonials-section .section-title {
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Center and constrain the subtitle for better readability */
+.quick-highlights .section-subtitle,
+.testimonials-section .section-subtitle {
+  text-align: center;
+  max-width: 760px;
+  margin: 0.5rem auto 0;
+  color: inherit;
+}
+
+/* small responsive tweak to keep centered layout on narrow screens */
+@media (max-width: 640px) {
+  .quick-highlights .section-subtitle,
+  .testimonials-section .section-subtitle {
+    padding: 0 1rem;
+    max-width: none;
+  }
+}
+
 /* Responsive: single column on small screens, logos below intro */
 @media (max-width: 900px) {
   .partners-grid { grid-template-columns: 1fr; gap: 18px; }
@@ -194,3 +220,112 @@
   .partner-card { width: 100%; }
   .cta-buttons { flex-direction: column; gap: 0.6rem; }
 }
+
+/* Unified button hover — use theme deep purple */
+:root {
+  --theme-hover: var(--color-deep-purple, #5A007A);
+}
+
+/* Apply smooth transitions to buttons and CTA elements */
+a[class^="btn"],
+button[class^="btn"],
+[class*=" btn-"],
+.cta-button,
+.vh-primary-btn,
+.vh-subtle-btn,
+.btn-outline,
+.btn-link,
+.btn-text-arrow,
+.btn-outline-large,
+.btn-ghost-simple,
+.btn-request-intro,
+.btn-view-full-profile,
+.btn-secondary,
+.btn-danger {
+  transition: background-color .18s ease, color .18s ease, transform .12s ease, box-shadow .12s ease, border-color .18s ease;
+  will-change: transform, background-color;
+}
+
+/* Primary and filled buttons: purple background on hover */
+.btn-primary,
+.join-button,
+.vh-primary-btn,
+.btn-primary[role="button"],
+a.btn-primary {
+  /* keep existing default styles; this changes hover only */
+}
+.btn-primary:hover,
+.join-button:hover,
+.vh-primary-btn:hover,
+button.btn-primary:hover,
+a.btn-primary:hover {
+  background-color: var(--theme-hover) !important;
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(90,0,122,0.12);
+  border-color: var(--theme-hover);
+}
+
+/* Outline buttons: fill with purple on hover and invert text */
+.btn-outline,
+.btn-outline-large,
+.btn-request-intro,
+.btn-view-full-profile {
+  background: transparent;
+  border-color: rgba(10,10,10,0.06);
+  color: var(--theme-hover);
+}
+.btn-outline:hover,
+.btn-outline-large:hover,
+.btn-request-intro:hover,
+.btn-view-full-profile:hover {
+  background-color: var(--theme-hover);
+  color: #fff;
+  border-color: var(--theme-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(90,0,122,0.10);
+}
+
+/* Ghost / subtle buttons: shift text color on hover */
+.btn-ghost-simple,
+.btn-link,
+.vh-subtle-btn,
+.link {
+  color: inherit;
+  background: transparent;
+  border: none;
+}
+.btn-ghost-simple:hover,
+.btn-link:hover,
+.vh-subtle-btn:hover,
+.link:hover {
+  color: var(--theme-hover);
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+/* Small CTA-style buttons used in multiple places */
+.cta-button:hover {
+  background-color: var(--theme-hover);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(90,0,122,0.10);
+}
+
+/* Danger buttons: slightly darker purple tint on hover */
+.btn-danger:hover {
+  background-color: color-mix(in srgb, var(--theme-hover) 85%, black 15%);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Focus-visible for keyboard users */
+a[class^="btn"]:focus-visible,
+button[class^="btn"]:focus-visible,
+.cta-button:focus-visible {
+  outline: 3px solid rgba(90,0,122,0.14);
+  outline-offset: 3px;
+}
+
+/* Do not override explicit white-on-gold buttons when they rely on brand (e.g. .join-button)
+   but ensure hover uses theme color if the author prefers it — above rules use !important where necessary. */
