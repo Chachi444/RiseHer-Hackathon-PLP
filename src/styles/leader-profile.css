@@ -5,3 +5,87 @@
 .lp-sub { margin-top:6px; color:#666; }
 .badge { background:#F6F0FF; color:#5A007A; padding:6px 10px; border-radius:999px; font-weight:700; margin-right:6px; display:inline-block; }
 .btn-secondary { padding:.55rem .85rem; border-radius:8px; border:1px solid rgba(0,0,0,0.08); text-decoration:none; display:inline-block; }
+/* Apply LeaderProfile visual system to MentorProfile (mp-* classes) */
+.mentor-container,
+.lp-main { max-width: 1100px; margin: 1.5rem auto; padding: 1rem; box-sizing: border-box; color: #222; }
+
+/* Header grid (photo | meta | quick) */
+.mp-header,
+.lp-header {
+  display: grid;
+  grid-template-columns: 160px 1fr 300px;
+  grid-template-areas: "photo meta quick";
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+/* place actual elements */
+.mp-header > img.mp-photo { grid-area: photo; width:100%; border-radius:10px; object-fit:cover; height:160px; }
+.mp-header > .mp-meta { grid-area: meta; }
+.mp-header > .mp-quick { grid-area: quick; align-self:start; }
+
+/* Meta column */
+.mp-meta .mp-name,
+.lp-meta .lp-name { margin:0; font-size:1.35rem; font-weight:800; color: #2c1a4a; line-height:1.05; }
+.mp-sub, .mp-meta .mp-sub { color:#555; font-size:.95rem; margin-top:4px; }
+
+/* Badges */
+.mp-badges, .lp-badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.mp-badges .badge, .lp-badges .badge {
+  background:#F6F0FF; color:#5A007A; padding:5px 8px; border-radius:8px; font-weight:700; font-size:.86rem; border:1px solid rgba(90,0,122,0.06);
+}
+
+/* Header actions */
+.mp-actions, .lp-actions { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.mp-actions .btn-primary, .lp-actions .btn-primary {
+  padding:.5rem .9rem; border-radius:10px; background:#5A007A; color:#fff; text-decoration:none; display:inline-flex; align-items:center;
+}
+.mp-actions .btn-secondary, .lp-actions .btn-secondary { padding:.45rem .8rem; border-radius:10px; border:1px solid rgba(0,0,0,0.06); background:transparent; color:#2c1a4a; }
+
+/* Quick card */
+.mp-quick-card, .lp-quick-card {
+  width:100%; box-sizing:border-box; padding:12px; border-radius:10px; border:1px solid rgba(11,12,26,0.04);
+  background:#fff; box-shadow:0 8px 20px rgba(11,12,26,0.05);
+}
+.mp-quick-info-details, .lp-quick-info-details { color:#555; font-size:.95rem; line-height:1.5; margin-top:6px; }
+
+/* Main content cards */
+.mp-content, .lp-card, .lp-content { background:#fff; padding:18px; border-radius:12px; box-shadow:0 8px 24px rgba(11,12,26,0.05); border:1px solid rgba(11,12,26,0.04); }
+
+/* Experience list and testimonials */
+.mp-experience-list, .lp-experience-list { margin:8px 0 0 18px; color:#444; }
+.mp-testimonial, .lp-testimonial { margin:10px 0; padding:10px; border-left:3px solid rgba(90,0,122,0.08); background:linear-gradient(180deg,#fff,#fbfbfc); border-radius:8px; }
+.mp-testimonial-author, .lp-testimonial-author { margin-top:6px; color:#666; font-size:.9rem; }
+
+/* Footer/back link */
+.mp-back, .lp-back { color:#5A007A; text-decoration:none; font-weight:700; }
+
+/* Responsiveness: collapse columns on small screens */
+@media (max-width: 980px) {
+  .mp-header, .lp-header {
+    grid-template-columns: 120px 1fr;
+    grid-template-areas:
+      "photo meta"
+      "quick quick";
+    gap: 14px;
+  }
+  .mp-photo { height:140px; }
+}
+
+/* Very small screens */
+@media (max-width: 560px) {
+  .mp-header, .lp-header {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "meta"
+      "quick";
+    gap: 12px;
+  }
+  .mp-photo { height:200px; border-radius:8px; }
+  .mp-name { font-size:1.25rem; }
+}
+
+/* small accessibility focus styles */
+.mp-actions a:focus, .mp-quick-card a:focus, .lp-actions a:focus { outline:3px solid rgba(90,0,122,0.12); outline-offset:3px; }
