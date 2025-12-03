@@ -11,97 +11,97 @@ export default function Home() {
       role: "Voter Educator, Mombasa",
       quote:
         "RIseHer gave me the confidence and tools to run community workshops safely — I couldn't have done it alone.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Grace T.",
       role: "School Leader, Kampala",
       quote:
         "I found a peer network that helped me scale our civic youth program — people who actually listen and help.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Zainab R.",
       role: "Local Advocate, Dar es Salaam",
       quote:
         "The visibility tools helped us get noticed — our turnout tripled!",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Maya S.",
       role: "Civic Volunteer, Lusaka",
       quote: "Mentorship matching helped me structure my leadership goals.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Evelyn P.",
       role: "Community Liaison, Accra",
       quote: "I accessed funding listings that supported our training series.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Nadia L.",
       role: "Policy Intern, Nairobi",
       quote: "The workshops sharpened my public policy skills.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Rita A.",
       role: "Campaign Volunteer, Lagos",
       quote:
         "I felt safer using the digital safety checklist during fieldwork.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Sofia M.",
       role: "Youth Organizer, Kigali",
       quote: "The community introduced me to collaborators across regions.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Hannah B.",
       role: "Researcher, Accra",
       quote: "Resources saved us weeks of effort designing our outreach.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Lina C.",
       role: "Advocacy Lead, Kampala",
       quote: "I bookmarked grants and landed funding for a pilot project.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Noor D.",
       role: "Trainer, Mombasa",
       quote:
         "Trainings boosted confidence in public speaking for participants.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Patience K.",
       role: "Community Organiser, Goma",
       quote: "RIseHer connected me to a mentor who guided campaign strategy.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Yasmin O.",
       role: "Regional Coordinator, Nairobi",
       quote:
         "Our meetup saw a 3x increase in volunteers after posting on RIseHer.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Diana F.",
       role: "Civic Tech Volunteer, Lagos",
       quote:
         "The simulation game made leadership training engaging and practical.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
     {
       name: "Olga H.",
       role: "NGO Partner, Accra",
       quote: "We used the toolkit for safe campaigning across multiple cities.",
-      photo: "src/assets/one.jpg",
+      photo: "public/assets/one.jpg",
     },
   ];
 
@@ -130,15 +130,15 @@ export default function Home() {
 
   // partners carousel — use placeholders (replace with real assets later)
   const partners = [
-    { id: 1, src: "src/assets/partner1.png", alt: "Partner 1" },
-    { id: 2, src: "src/assets/partner2.png", alt: "Partner 2" },
-    { id: 3, src: "src/assets/partner3.png", alt: "Partner 3" },
-    { id: 4, src: "src/assets/partner4.png", alt: "Partner 4" },
-    { id: 5, src: "src/assets/partner5.png", alt: "Partner 5" },
-    { id: 6, src: "src/assets/partner6.png", alt: "Partner 6" },
-    { id: 7, src: "src/assets/partner5.png", alt: "Partner 7" },
-    { id: 8, src: "src/assets/partner4.png", alt: "Partner 8" },
-    { id: 9, src: "src/assets/partner1.png", alt: "Partner 9" },
+    { id: 1, src: "public/assets/partner1.png", alt: "Partner 1" },
+    { id: 2, src: "public/assets/partner2.png", alt: "Partner 2" },
+    { id: 3, src: "public/assets/partner3.png", alt: "Partner 3" },
+    { id: 4, src: "public/assets/partner4.png", alt: "Partner 4" },
+    { id: 5, src: "public/assets/partner5.png", alt: "Partner 5" },
+    { id: 6, src: "public/assets/partner6.png", alt: "Partner 6" },
+    { id: 7, src: "public/assets/partner5.png", alt: "Partner 7" },
+    { id: 8, src: "public/assets/partner4.png", alt: "Partner 8" },
+    { id: 9, src: "public/assets/partner1.png", alt: "Partner 9" },
   ];
 
   const partnersPerPage = 3;
@@ -193,7 +193,7 @@ export default function Home() {
                 onError={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
                   img.onerror = null;
-                  img.src = "src/assets/mumbi Ndung'u.png";
+                  img.src = "public/assets/mumbi Ndung'u.png";
                 }}
               />
             </div>
@@ -217,7 +217,7 @@ export default function Home() {
           <article className="card" aria-labelledby="upcoming-event">
             <div className="media-square">
               <img
-                src="src/assets/banner.png"
+                src="public/assets/banner.png"
                 alt="Upcoming event illustration"
               />
             </div>
@@ -240,7 +240,7 @@ export default function Home() {
           <article className="card" aria-labelledby="latest-news">
             <div className="media-square">
               <img
-                src="src/assets/news.png"
+                src="public/assets/news.png"
                 alt="Latest news illustration"
               />
             </div>
