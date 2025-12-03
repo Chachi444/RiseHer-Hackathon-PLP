@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="site-footer" role="contentinfo">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="src\assets\logo3.png" alt="RIseHer logo" className="logo-small" />
+          <img src="public/assets/logo3.png" alt="RIseHer logo" className="logo-small" />
           <p>RIseHer — Empowering women in public life & public service.</p>
         </div>
 
@@ -18,10 +18,10 @@ export default function Footer() {
         </div>
 
         <div className="socials" aria-label="Social links">
-          <a href="#" aria-label="Instagram"><img src="src\assets\instagram.png" alt="Instagram" /></a>
-          <a href="#" aria-label="TikTok"><img src="src\assets\tiktok.png" alt="TikTok" /></a>
-          <a href="#" aria-label="LinkedIn"><img src="src\assets\linkedin.png" alt="LinkedIn" /></a>
-          <a href="#" aria-label="Twitter"><img src="src\assets\twitter.png" alt="Twitter" /></a>
+          <a href="#" aria-label="Instagram"><img src="public/assets/instagram.png" alt="Instagram" /></a>
+          <a href="#" aria-label="TikTok"><img src="public/assets/tiktok.png" alt="TikTok" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="public/assets/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#" aria-label="Twitter"><img src="public/assets/twitter.png" alt="Twitter" /></a>
         </div>
       </div>
 
