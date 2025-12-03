@@ -87,14 +87,14 @@ export default function Visibility() {
             <div className="vh-map-panel">
               <div className="vh-map-canvas" aria-hidden="false">
                 <img
-                  src="/assets/visi.png"
+                  src="src/assets/visi.png"
                   alt="Map artwork"
                   className="vh-map-image"
                   onError={(e) => {
                     const img = e.currentTarget as HTMLImageElement;
                     if (img.dataset.fallbackApplied === '1') return;
                     img.dataset.fallbackApplied = '1';
-                    img.src = '/assets/one.jpg';
+                    img.src = 'src/assets/one.jpg';
                   }}
                 />
               </div>
@@ -136,18 +136,18 @@ export default function Visibility() {
                 >
                   {l.photo ? (
                     <img
-                      src={l.photo || '/assets/one.jpg'}
+                      src={l.photo || 'src/assets/one.jpg'}
                       alt={`${l.name} profile photo`}
                       className="vh-dir-photo"
                       onError={(e) => {
                         const img = e.currentTarget as HTMLImageElement;
                         if (img.dataset.fallbackApplied === '1') return;
                         img.dataset.fallbackApplied = '1';
-                        img.src = '/assets/placeholder.svg';
+                        img.src = 'src/assets/one.jpg';
                       }}
                     />
                   ) : (
-                    <img src="/assets/one.jpg" alt={`${l.name} profile placeholder`} className="vh-dir-photo" />
+                    <img src="src/assets/one.jpg" alt={`${l.name} profile placeholder`} className="vh-dir-photo" />
                   )}
 
                   <div className="vh-dir-meta">
