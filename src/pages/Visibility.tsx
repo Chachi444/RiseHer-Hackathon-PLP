@@ -7,9 +7,9 @@ type Leader = { id: number; name: string; role: string; region: string; photo?: 
 export default function Visibility() {
   // sample directory (swap photos in public/assets as needed)
   const initial: Leader[] = [
-    { id: 1, name: 'Charity O.', role: 'Councilwoman', region: 'Kigali', photo: '/assets/one.jpg', profile: '/leaders/charity-o' },
-    { id: 2, name: 'Beatrice N.', role: 'Community Organizer', region: 'Nairobi', photo: '/assets/one.jpg', profile: '/leaders/beatrice-n' },
-    { id: 3, name: 'Chloe M.', role: 'Policy Lead', region: 'Accra', photo: '/assets/one.jpg', profile: '/leaders/chloe-m' },
+    { id: 1, name: 'Charity O.', role: 'Councilwoman', region: 'Kigali', photo: 'public/assets/one.jpg', profile: '/leaders/charity-o' },
+    { id: 2, name: 'Beatrice N.', role: 'Community Organizer', region: 'Nairobi', photo: 'public/assets/one.jpg', profile: '/leaders/beatrice-n' },
+    { id: 3, name: 'Chloe M.', role: 'Policy Lead', region: 'Accra', photo: 'public/assets/one.jpg', profile: '/leaders/chloe-m' },
   ];
 
   const [query, setQuery] = useState('');
@@ -87,7 +87,7 @@ export default function Visibility() {
             <div className="vh-map-panel">
               <div className="vh-map-canvas" aria-hidden="false">
                 <img
-                  src="src/assets/visi.png"
+                  src="public\assets\visi.png"
                   alt="Map artwork"
                   className="vh-map-image"
                   onError={(e) => {
