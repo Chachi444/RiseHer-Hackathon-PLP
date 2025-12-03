@@ -5,7 +5,16 @@ export default function Footer() {
     <footer className="site-footer" role="contentinfo">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="public/assets/logo3.png" alt="RIseHer logo" className="logo-small" />
+          <img
+            src="/assets/logo3.png"
+            alt="RIseHer logo"
+            className="logo-small"
+            onError={(e) => {
+              const img = e.currentTarget as HTMLImageElement;
+              img.onerror = null;
+              img.src = '/assets/placeholder.svg';
+            }}
+          />
           <p>RIseHer — Empowering women in public life & public service.</p>
         </div>
 
@@ -18,10 +27,18 @@ export default function Footer() {
         </div>
 
         <div className="socials" aria-label="Social links">
-          <a href="#" aria-label="Instagram"><img src="public/assets/instagram.png" alt="Instagram" /></a>
-          <a href="#" aria-label="TikTok"><img src="public/assets/tiktok.png" alt="TikTok" /></a>
-          <a href="#" aria-label="LinkedIn"><img src="public/assets/linkedin.png" alt="LinkedIn" /></a>
-          <a href="#" aria-label="Twitter"><img src="public/assets/twitter.png" alt="Twitter" /></a>
+          <a href="#" aria-label="Instagram">
+            <img src="/assets/instagram.png" alt="Instagram" onError={(e)=>{ (e.currentTarget as HTMLImageElement).src='/assets/placeholder.svg'; }} />
+          </a>
+          <a href="#" aria-label="TikTok">
+            <img src="/assets/tiktok.png" alt="TikTok" onError={(e)=>{ (e.currentTarget as HTMLImageElement).src='/assets/placeholder.svg'; }} />
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <img src="/assets/linkedin.png" alt="LinkedIn" onError={(e)=>{ (e.currentTarget as HTMLImageElement).src='/assets/placeholder.svg'; }} />
+          </a>
+          <a href="#" aria-label="Twitter">
+            <img src="/assets/twitter.png" alt="Twitter" onError={(e)=>{ (e.currentTarget as HTMLImageElement).src='/assets/placeholder.svg'; }} />
+          </a>
         </div>
       </div>
 
