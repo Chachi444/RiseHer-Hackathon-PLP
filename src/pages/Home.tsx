@@ -366,78 +366,41 @@ export default function Home() {
       </section>
 
       {/* Partners carousel */}
-      <div className="partners-section">
-        <div className="container" style={{ maxWidth: 1100 }}>
-          <h2 className="section-title">Our partners</h2>
-          <p className="section-subtitle">
-            We collaborate with organisations across the region.
-          </p>
+      <div className="partners-section partners-modern">
+				<div className="container" style={{ maxWidth: 1100 }}>
+					<div className="partners-grid">
+						<div className="partners-intro">
+							
+							<h2 className="partners-title">We work with trusted partners</h2>
+							<p className="partners-copy">
+								We collaborate with organisations across the region to deliver training, safety tools, and funding opportunities.
+								Our partners support meetups, mentorship programs and research that advances women’s leadership in public life.
+							</p>
+							
+						</div>
 
-          <div
-            className="slider-wrap"
-            aria-roledescription="carousel"
-            aria-label="Partner logos carousel"
-          >
-            <div
-              className="slider-track"
-              style={{
-                width: `${partnerPages.length * 100}%`,
-                transform: `translateX(-${
-                  partnerPage * (100 / partnerPages.length)
-                }%)`,
-              }}
-            >
-              {partnerPages.map((pg, pageIndex) => (
-                <div
-                  key={pageIndex}
-                  className="partner-page"
-                  aria-hidden={pageIndex !== partnerPage}
-                  style={{ width: `${100 / partnerPages.length}%` }}
-                >
-                  {pg.map((p) => (
-                    <div
-                      key={p.id}
-                      role="group"
-                      aria-label={p.alt}
-                      className="partner-card"
-                    >
-                      <img
-                        src={p.src}
-                        alt={p.alt}
-                        loading="lazy"
-                        className="partner-logo"
-                        onError={(e) => {
-                          const img = e.currentTarget as HTMLImageElement;
-                          img.onerror = null;
-                          img.src = "/assets/partner-fallback.png";
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className="partner-indicators"
-            role="tablist"
-            aria-label="Partner pages"
-          >
-            {partnerPages.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setPartnerPage(idx)}
-                aria-label={`Go to partners page ${idx + 1}`}
-                aria-pressed={idx === partnerPage}
-                className={`partner-control-button ${
-                  idx === partnerPage ? "active" : ""
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+						<div className="partners-logos" aria-hidden={false}>
+							{/* show logos in a simple grid. Use partner data where available. */}
+							{partners.slice(0, 9).map((p) => (
+								<div key={p.id} className="partner-tile" aria-label={p.alt} title={p.alt}>
+									<img
+										src={p.src}
+										alt={p.alt}
+										className="partner-logo"
+										loading="lazy"
+										onError={(e) => {
+											const img = e.currentTarget as HTMLImageElement;
+											if (img.dataset.fallbackApplied === '1') return;
+											img.dataset.fallbackApplied = '1';
+											img.src = '/assets/partner-fallback.svg';
+										}}
+									/>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
 
       {/* Additional home sections (testimonials, map preview, newsletter) can be added here */}
     </div>
