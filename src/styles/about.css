@@ -1,35 +1,158 @@
-.about-container { max-width: 1040px; margin: 2.5rem auto; padding: 1.25rem; color: var(--color-dark-gray, #222); font-family: var(--font-family, Roboto, system-ui, -apple-system); background: transparent; }
-.about-hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: center; margin-bottom: 20px; }
-.about-hero-text { max-width: 720px; }
-.about-eyebrow { color: var(--color-deep-purple, #5A007A); font-weight: 800; letter-spacing: .02em; margin-bottom: 10px; }
-.about-title { margin: 0; font-size: 2rem; line-height: 1.08; color: var(--color-deep-purple, #0f0736); }
-.about-lead { margin-top: 12px; color: var(--color-dark-gray,#444); font-size: 1.05rem; line-height: 1.6; max-width: 68ch; }
-
-.about-img-wrap { width: 100%; height: 320px; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--bg, #fff); box-shadow: var(--card-shadow, 0 20px 48px rgba(11,12,26,0.06)); border: 1px solid var(--card-border, rgba(11,12,26,0.04)); }
-.about-hero-img { width: 100%; height: 100%; object-fit: contain; display: block; background: var(--bg, #fff); }
-
-.about-core { margin-top: 18px; }
-.about-core-grid { display: grid; grid-template-columns: 1fr 420px; gap: 20px; align-items: start; }
-.about-mission-card, .about-offers-card { background: var(--bg,#fff); padding: 22px; border-radius: 12px; box-shadow: 0 18px 44px rgba(11,12,26,0.04); border: 1px solid rgba(11,12,26,0.03); }
-.about-h3 { margin: 0 0 8px 0; font-size: 1.05rem; color: #2c1a4a; }
-.about-paragraph { margin-top: 10px; color: #444; line-height: 1.7; }
-
-.about-emphasized { margin-top: 18px; background: linear-gradient(180deg, #fbfbfe, #fff); padding: 12px; border-radius: 8px; border: 1px solid rgba(11,12,26,0.03); }
-
-.about-divider { border: none; border-top: 1px solid #f0f0f4; margin: 18px 0; }
-
-.about-offers-grid { margin-top: 12px; display: grid; gap: 12px; }
-.about-offer-item { display: flex; gap: 12px; align-items: flex-start; }
-.about-badge { width: 44px; height: 44px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; color: #5A007A; background: #F6F0FF; flex: 0 0 44px; }
-.about-offer-title { margin: 0; font-size: .98rem; font-weight: 700; color: #222; }
-.about-offer-desc { margin: 4px 0 0 0; color: #555; font-size: .95rem; line-height: 1.5; }
-
-.about-footer-links { display: flex; gap: 12px; justify-content: flex-end; margin-top: 6px; }
-.about-home-link { text-decoration: none; padding: .6rem .9rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06); background: #fff; color: #333; }
-
-/* Responsive tweaks */
-@media (max-width: 980px) {
-  .about-hero-grid, .about-core-grid { grid-template-columns: 1fr; }
-  .about-img-wrap { height: 240px; }
-  .about-offers-card { order: 2; }
+.about-container {
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  color: var(--color-dark-gray,#222);
+  font-family: var(--font-family, Roboto, system-ui, -apple-system);
 }
+
+/* HERO */
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.about-hero-text { max-width: 68ch; }
+
+.about-eyebrow {
+  display: inline-block;
+  color: var(--color-deep-purple,#5A007A);
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  margin-bottom: .5rem;
+}
+
+.about-title {
+  margin: 0 0 .6rem 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.06;
+  color: var(--color-deep-purple,#2c1a4a);
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.about-lead {
+  margin: 0;
+  color: var(--color-dark-gray,#444);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* Emphasized paragraph */
+.about-emphasized {
+  margin-top: .85rem;
+  font-size: .98rem;
+  color: var(--color-dark-gray,#4b4b4b);
+  background: linear-gradient(180deg, rgba(90,0,122,0.02), rgba(90,0,122,0.01));
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(90,0,122,0.04);
+}
+
+/* Image frame */
+.about-img-wrap {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 40px rgba(11,12,26,0.06);
+  border: 1px solid rgba(11,12,26,0.04);
+}
+
+.about-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CORE content */
+.about-core { margin-top: 18px; }
+
+.about-core-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Mission card & offers */
+.about-mission-card,
+.about-offers-card {
+  background: var(--bg,#fff);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(11,12,26,0.04);
+  border: 1px solid rgba(11,12,26,0.03);
+}
+
+.about-h3 { margin: 0 0 10px 0; color: var(--color-deep-purple,#2c1a4a); font-size: 1.02rem; }
+
+/* Offers grid */
+.about-offers-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (min-width: 820px) {
+  .about-offers-grid { grid-template-columns: 1fr; }
+}
+
+/* Offer item */
+.about-offer-item { display: flex; gap: 12px; align-items: flex-start; }
+.about-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color: var(--rh-purple,#5A007A);
+  background: #F6F0FF;
+  flex: 0 0 44px;
+  box-shadow: 0 6px 16px rgba(11,12,26,0.04);
+}
+.about-offer-title { margin: 0; font-weight:700; font-size: .98rem; color: #222; }
+.about-offer-desc { margin: 4px 0 0; color: #555; font-size:.95rem; line-height:1.5; }
+
+/* Utilities */
+.about-divider { border: none; border-top: 1px solid rgba(11,12,26,0.04); margin: 16px 0; }
+.about-footer-links { margin-top: 20px; text-align: left; }
+
+/* small buttons inside about */
+.about-home-link {
+  display:inline-block;
+  padding: .5rem .9rem;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-deep-purple,#5A007A);
+  text-decoration: none;
+  border: 1px solid rgba(90,0,122,0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+  .about-hero-grid,
+  .about-core-grid { grid-template-columns: 1fr; }
+  .about-img-wrap { height: 260px; }
+  .about-core-grid { gap: 16px; }
+}
+
+/* Accessibility: ensure focus outlines visible */
+.about-home-link:focus,
+a:focus { outline: 3px solid rgba(90,0,122,0.12); outline-offset: 3px; }
+
+/* Minor tweak for image placeholders */
+.about-hero-img[alt=""] { visibility: visible; background: linear-gradient(180deg,#f3f0f8,#fff); }
+
+/* End of about.css */
