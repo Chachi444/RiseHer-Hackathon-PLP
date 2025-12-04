@@ -205,16 +205,15 @@ export default function Mentorship() {
                   Request an introduction
                 </Link>
 
-                {/* If a dedicated mentor profile page exists, open it in a new tab */}
-                <a
-                  href={`/mentorship/profile/${mentor.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                {/* Open full profile in-app (SPA) to avoid server 404s on direct GET */}
+                <Link
+                  to={`/mentorship/profile/${mentor.id}`}
                   className="btn-view-full-profile"
-                  aria-label="Open full profile in new tab"
+                  aria-label="Open full profile"
+                  onClick={() => setOpenMentor(null)}
                 >
                   Open full profile
-                </a>
+                </Link>
               </div>
             </div>
           </div>
